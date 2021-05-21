@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,600;1,700;1,900&display=swap");
+
+* {
+    margin: 0;
+    box-sizing: content-box;
+    font-family: 'Nunito';
+    font-size: 1.1em;
+}
+
+/* Cuerpo de la página */
+.router {
+    background: radial-gradient(circle at 120.71% 50%, #fce2c1 0, #f8e4c1 3.33%, #f2e5c0 6.67%, #ede7c1 10%, #e7e9c2 13.33%, #e2eac4 16.67%, #dcecc7 20%, #d6edca 23.33%, #d0eece 26.67%, #cbefd3 30%, #c6f0d7 33.33%, #c1f0dc 36.67%, #bdf1e1 40%, #b9f1e7 43.33%, #b7f1ec 46.67%, #b5f1f1 50%, #b4f1f6 53.33%, #b5f0fa 56.67%, #b6efff 60%, #b8eeff 63.33%, #bcedff 66.67%, #c0ecff 70%, #c5ebff 73.33%, #cbe9ff 76.67%, #d1e8ff 80%, #d8e6ff 83.33%, #dee4ff 86.67%, #e5e2ff 90%, #ebe1ff 93.33%, #f1dfff 96.67%, #f7deff 100%);
+}
+
+/* ----------------Navbar--------------------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.1em 1.1em 0em 1.1em;
+}
+.navbar a {
+    margin-left: 1.5em;
+    padding: 1em;
+    font-size: 0.6em;
+    font-weight: bold;
+    cursor: pointer;
+}
+.navbar a:hover {
+    color: #4d024d;
+}
+.navbar img {
+    width: 120px;
+}
+
+/* Index */
+
+.index {
+    height: 80vh;
+    width: 85%;
+    border-radius: 30px;
+    margin: auto;
+    background-color: white;
+}
+
+/* Footer */
+
+.footer {
+    height: 100px;
+}
