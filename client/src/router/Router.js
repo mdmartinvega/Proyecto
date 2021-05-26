@@ -1,5 +1,6 @@
 import NavBar from '../components/NavBar';
 import Index from '../pages/Index';
+import Profiles from '../pages/Profiles';
 import LogIn from '../pages/LogIn';
 import Register from '../pages/Register';
 import Footer from '../components/Footer';
@@ -15,6 +16,7 @@ export default function Router() {
                     <Route exact path="/" component={Index} />
                     <Route path="/login" component={LogIn} />
                     <Route path="/register" component={Register} />
+                    <Route path="/profiles" component={Profiles} />
                 </Switch>
             </BrowserRouter>
             <Footer />

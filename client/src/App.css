@@ -20,8 +20,8 @@
 }
 .navbar a {
     margin-left: 1.5em;
-    padding: 1em;
-    font-size: 0.6em;
+    padding: 0.5em;
+    font-size: 0.8em;
     font-weight: bold;
     cursor: pointer;
     text-decoration: none;
@@ -35,26 +35,42 @@
 
 /* -------------------------Index------------------------- */
 
-.index {
-    height: 80vh;
+.index-picture {
+    height: 75vh;
     width: 85%;
     border-radius: 30px;
     margin: auto;
-    background-color: white;
+    background-image: url(./images/index_photo.jpg);
+    background-position: center bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.index-picture h2 {
+    color: rgb(44, 18, 44);
+    padding-top: 250px;
+    padding-left: 50px;
+    font-size: 1.8em;
+
 }
 
 /* Input Search */
+.input-search form {
+    padding-top: 200px;
+    padding-left: 50px;
+}
 
 .input-search input{
     padding: 10px;
-    width: 25%;
+    width: 35%;
     border-radius: 10px;
-    color: rgb(33, 34, 34);
+    color: rgb(44, 18, 44);
     font-size: 0.9em;
+    text-align: center;
   }
   
   .input-search input:focus {
-    box-shadow: 0px 0px 10px turquoise;
+    box-shadow: 0px 0px 10px rgb(44, 18, 44);
     outline: none
   }
 
@@ -73,3 +89,38 @@
 .footer {
     height: 100px;
 }
+
+/* -------------------------Profiles-------------------------- */
+.container-cards {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px;
+    justify-content: center;
+    gap: 15px;
+}
+
+.card {
+    width: 450px;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: left;
+    height: 70vh;
+    font-size: 0.8em;
+}
+.card .other_Details {
+    text-align: justify;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-height: 5rem;
+    padding: 0px 5px;
+}
+
+/* ------------------------Footer------------------------ */
+.footer {
+    height: 10vh;
+    color: rgb(80, 80, 80);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
