@@ -1,7 +1,7 @@
 import NavBar from '../components/NavBar';
 import Index from '../pages/Index';
 import Profiles from '../pages/Profiles';
-import LogIn from '../pages/LogIn';
+import Login from '../pages/Login';
 import Register from '../pages/Register';
 import About from '../pages/About';
 import Footer from '../components/Footer';
@@ -15,15 +15,13 @@ export default function Router() {
             <NavBar />
                 <Switch>
                     <Route exact path="/" component={Index} />
-                    <Route path="/login" component={LogIn} />
+                    <Route path="/login" component={Login} />
                     <Route path="/register" component={Register} />
                     <Route path="/about" component={About} />
                     <Route path="/profiles" component={Profiles} />
                 </Switch>
             </BrowserRouter>
             <Footer />
-          
-            
         </div>
     )
 }

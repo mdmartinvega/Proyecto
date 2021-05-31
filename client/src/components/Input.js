@@ -1,3 +1,4 @@
+import '../styles/Input.css';
 
 export default function Input() {
     return (

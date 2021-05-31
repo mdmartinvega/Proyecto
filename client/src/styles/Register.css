@@ -1,0 +1,61 @@
+.choose-option {
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+}
+.choose-option div {
+    padding: 20px 0px;
+}
+.choose-option div input {
+    margin-right: 10px;
+}
+
+.register-form {
+    width: 60%;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 30px
+}
+
+.register-form .inputs-form label,
+.register-form .inputs-form input {
+  width: 100%;
+}
+ 
+.inputs-form input {
+  padding: 7px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 0;
+  background-color: rgb(236, 236, 236);
+  outline: none;
+}
+
+
+.inputs-form input:focus {
+  /* box-shadow: 0px 0px 10px rebeccapurple;
+  outline: none; */
+  background-color: rgb(235, 207, 240);
+}
+
+.register-form button {
+    width: 100%;
+    background-color: rebeccapurple;
+    padding: 7px;
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 0;
+}
+
+.register-form a {
+    text-decoration: none;
+    color: rgb(156, 67, 245);
+    font-weight: bold;
+    padding-right: 25px;
+  }
+
+
+

@@ -1,0 +1,19 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.1em 1.1em 0em 1.1em;
+}
+.navbar a {
+    margin-left: 1.5em;
+    padding: 0.5em;
+    /* font-size: 0.8em; */
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+.navbar a:hover {
+    color: #4d024d;
+}
+.navbar img {
+    width: 120px;
+}

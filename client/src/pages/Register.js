@@ -1,8 +1,9 @@
+import '../styles/Register.css';
 import { Link } from 'react-router-dom';
 
 export default function Register() {
     return (
-        <div className="login-form">
+        <div className="register-form">
             {/* <fieldset> */}
                 {/* <legend>Forma parte de nuestra comunidad</legend> */}
                 <h2>Forma parte de nuestra comunidad</h2>

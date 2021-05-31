@@ -1,0 +1,31 @@
+
+.about-us {
+    width: 85%;
+    background: linear-gradient(to bottom, rgba(255,255, 255, 0), rgba(255, 255, 255, 1)), url(../images/index_photo.jpg);
+    background-position: center bottom;
+    background-size: cover;
+    border-radius: 30px;
+    margin: auto;
+    padding: 15px;
+    /* font-size: 0.8em; */
+    text-align: justify;
+    line-height: 40px;
+    
+}
+
+.container-abouts {
+    display: flex;
+    gap: 45px;
+    padding: 30px;
+    /* font-size: 1em; */
+    margin-top: 15px;
+}
+
+.abouts a{
+    background-color: #620062;
+    border-radius: 30px;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+
+}

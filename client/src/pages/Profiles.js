@@ -1,4 +1,5 @@
 import Profile_Card from '../components/Profile_Card';
+import '../styles/Profiles.css';
 export default function Profiles() {
 
     const API_profiles = {
