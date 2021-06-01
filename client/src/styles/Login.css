@@ -1,14 +1,3 @@
-.choose-option {
-    display: flex;
-    justify-content: space-around;
-    font-weight: bold;
-}
-.choose-option div {
-    padding: 20px 0px;
-}
-.choose-option div input {
-    margin-right: 10px;
-}
 
 .login-form {
     width: 60%;
@@ -18,8 +7,12 @@
     border-radius: 30px
 }
 
+.login-form h2 {
+  padding-bottom: 20px;
+}
+
 .login-form .inputs-form label,
-.login-form .inputs-form input {
+.login-form .inputs-form input {  
   width: 100%;
 }
  
@@ -44,7 +37,7 @@
     background-color: rebeccapurple;
     padding: 7px;
     color: #fff;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
     border: 0;
