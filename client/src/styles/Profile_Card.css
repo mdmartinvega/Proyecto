@@ -1,0 +1,51 @@
+.card {
+    width: 450px;
+    background-color: white;
+    padding: 15px;
+}
+
+.card .description-cardProfile {
+   margin-top: 10px;
+}
+
+.name-city {
+    font-size: 1.5em;
+    font-style: italic;
+    display: flex;
+    justify-content: space-between;
+}
+
+.languages {
+    display: flex;
+    padding: 5px 0px;
+    
+}
+.languages div {
+    background-color: rgb(104, 208, 216);
+    padding: 8px;
+    border-radius: 30px;
+    color: black;
+    margin-right: 10px;
+}
+
+.interests {
+    display: flex;
+    padding: 5px 0px;
+    
+}
+.interests div {
+    background-color: rgb(203, 108, 216);
+    padding: 8px;
+    border-radius: 30px;
+    color: black;
+    margin-right: 10px;
+}
+
+.other_Details {
+  text-align: justify;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 0.8em;
+  max-height: 5rem;
+  padding: 10px 5px;
+}

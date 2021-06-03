@@ -1,7 +1,7 @@
 import Profile_Card from '../components/Profile_Card';
 import '../styles/Profiles.css';
 export default function Profiles() {
-
+    
     const API_profiles = {
         page: 1,
         results: [
@@ -44,21 +44,47 @@ export default function Profiles() {
                 languages: ["Español", "Inglés"],
                 interests: ["Cultura", "Política", "Rutas"],
                 other_Details: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis est sunt cumque, accusantium dolor suscipit iste unde id adipisci voluptatum molestias dignissimos sequi neque minima assumenda eum at molestiae voluptatibus omnis officia nulla placeat? Sit distinctio nulla doloribus odit nesciunt temporibus voluptates ipsum ea libero voluptate aliquid assumenda, recusandae ab?"
+            },
+            {
+                name: "Sara",
+                city: "Londres",
+                age: 31,
+                languages: ["Español", "Inglés"],
+                interests: ["Cultura", "Política", "Rutas"],
+                other_Details: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis est sunt cumque, accusantium dolor suscipit iste unde id adipisci voluptatum molestias dignissimos sequi neque minima assumenda eum at molestiae voluptatibus omnis officia nulla placeat? Sit distinctio nulla doloribus odit nesciunt temporibus voluptates ipsum ea libero voluptate aliquid assumenda, recusandae ab?"
+            },
+            {
+                name: "Sara",
+                city: "Londres",
+                age: 31,
+                languages: ["Español", "Inglés"],
+                interests: ["Cultura", "Política", "Rutas"],
+                other_Details: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis est sunt cumque, accusantium dolor suscipit iste unde id adipisci voluptatum molestias dignissimos sequi neque minima assumenda eum at molestiae voluptatibus omnis officia nulla placeat? Sit distinctio nulla doloribus odit nesciunt temporibus voluptates ipsum ea libero voluptate aliquid assumenda, recusandae ab?"
+            },
+            {
+                name: "Sara",
+                city: "Londres",
+                age: 31,
+                languages: ["Español", "Inglés"],
+                interests: ["Cultura", "Política", "Rutas"],
+                other_Details: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis est sunt cumque, accusantium dolor suscipit iste unde id adipisci voluptatum molestias dignissimos sequi neque minima assumenda eum at molestiae voluptatibus omnis officia nulla placeat? Sit distinctio nulla doloribus odit nesciunt temporibus voluptates ipsum ea libero voluptate aliquid assumenda, recusandae ab?"
             }
         ]
     }
 
     return (
-        <div className="container-cards">
-
-            {
-                API_profiles.results.map(person => {
-                    return (
-                        <Profile_Card person={person}/>
-                    )
-                })
-            }
+        <div>
+            <h1>Ciudad que hemos puesto en el input </h1>
+            <div className="container-cards">
+                {
+                    API_profiles.results.map(person => {
+                        return (
+                            <Profile_Card person={person}/>
+                        )
+                    })
+                }
             
+            </div>
         </div>
     )
 }

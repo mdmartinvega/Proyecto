@@ -4,6 +4,7 @@ import '../styles/About.css';
 export default function About() {
     return (
         <div className="about-us">
+            <h2>Sobre nosotros</h2>
             <p>El concepto <q>buddy</q> viene de la figura existente en las universidades que ofrecen experiencias <q>Erasmus</q> para estudiantes de otros países. Estos <q>buddies</q> son estudiantes de cursos superiores que te ayudan en tus primeros días en la ciudad, a adaptarte a ella ayudándote en los trámites o gestiones, dándote recomendaciones o cualquier consejo que necesites.</p>
             <p><strong>b-buddy</strong> nace con la idea de hacer más fácil el cambio de residencia para las personas que por las razones que sean, tienen que cambiar su lugar de residencia y mudarse a otro país. Quizá ya no eres un estudiante pero mudarse da un poquito de miedo y saber qué puedes contar con ayuda seguro que lo hace mucho más fácil. </p>
             <p>¿Quién mejor qué alguien que vive en tu lugar de destino para ayudarte a dar esos primeros pasos en tu nueva ciudad?</p>

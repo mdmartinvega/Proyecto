@@ -2,23 +2,9 @@
 .container-cards {
     display: flex;
     flex-wrap: wrap;
-    padding: 30px;
     justify-content: center;
-    gap: 15px;
+    gap: 25px;
+    width: 90%;
+    margin: 50px auto;
 }
 
-.card {
-    width: 450px;
-    border: 1px solid black;
-    border-radius: 10px;
-    text-align: left;
-    height: 70vh;
-    /* font-size: 0.8em; */
-}
-.card .other_Details {
-    text-align: justify;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    max-height: 5rem;
-    padding: 0px 5px;
-}
