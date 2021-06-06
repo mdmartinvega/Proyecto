@@ -17,8 +17,8 @@ export default function LogIn() {
                 <button type="submit" value="Log in">Accede</button>
             </form>
             <div>
-                <Link to="/forget-password">¿Has olvidado tu contraseña?</Link>
-                <Link to="/register">Regístrate para ser un buddy</Link>
+                <Link to="/forgetPassword">¿Has olvidado tu contraseña?</Link>
+                <Link to="/register">Regístrate para acceder</Link>
             </div>
         </div>
     )
