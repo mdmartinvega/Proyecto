@@ -9,7 +9,7 @@ export default function Register() {
                 <h2>Forma parte de nuestra comunidad</h2>
                 <form action="text" method="post">
                 <div className="choose-option">
-                    
+
                         <div>
                             <input type="radio" name="UserType" id="User"/>
                             <label for="User">Busco un buddy</label>

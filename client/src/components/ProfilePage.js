@@ -8,6 +8,16 @@ export default function Profile_page() {
     //TMDBAPI/FILMS/1225214 <- el ID lo capturas por useParams()
     return (
 
-        <div></div>
+        <div className="profile-page">
+
+            <div className="details-profile">
+                
+
+            </div>
+            <div className="image-profile">
+                <img src={PHOTO_PERSON} alt="" />
+            </div>
+
+        </div>
     )
 }

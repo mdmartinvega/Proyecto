@@ -13,7 +13,7 @@ export default function About() {
                     <h3>¿Necesitas un buddy?</h3>
                     <p>¿Te mudas con trabajo? Contacta con buddies de tu sector y ellos te ayudarán en lo que necesites. ¿Tienes problemas con el idioma local? Uno de nuestros buddies te puede ayudar a hacer tus primeras gestiones. ¿Necesitas una inmersión cultural express? Pide ayuda y sumérgete en la política, cultura o tradiciones de tu nuevo hogar.</p>
                     <p>Regístrate y cuéntanos más sobre tí. Tienes a tu disposición a nuestros buddies qué podrán ayudarte según tus necesidades, contacta con el que quieras y ya estarás un pasito más cerca de tu destino.</p>
-                    <Link to="/register">Encuentra tu buddy</Link>
+                    <Link to="/register?buddy=false">Encuentra tu buddy</Link>
                 </div>
                 <div className="abouts">
                     <h3>Be a buddy</h3>

@@ -1,0 +1,18 @@
+.profile-page {
+    height: 75vh;
+    width: 85%;
+    border-radius: 30px;
+    margin: 50px auto;
+    background: linear-gradient(to bottom, rgba(219, 218, 218, 0.3), rgb(246, 227, 243)), url(../images/luggage-1149289_1920.jpg);
+    background-position: right;
+    background-size: cover;
+    display: flex;
+}
+
+.details-profile {
+    
+}
+
+.profile-page img {
+
+}
