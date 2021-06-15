@@ -55,7 +55,7 @@
   padding: 10px 5px;
 }
 
-.card button {
+.card a {
     border: 2px solid purple;
     border-radius: 5px;
     background-color: white;
@@ -66,12 +66,12 @@
     padding: 3px;
 }
 
-.card button:hover {
+.card a:hover {
     background-color: rgb(253, 226, 253);
     border: 2px solid rgb(250, 182, 250);
 }
 
-.card button:focus {
+.card a:focus {
     background-color: rgb(78, 20, 78);
     color: white;
     border: none;

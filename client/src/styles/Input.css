@@ -4,12 +4,15 @@
 }
 
 .input-search input{
-    padding: 10px;
+    padding: 20px;
     width: 35%;
     border-radius: 10px;
-    color: rgb(44, 18, 44);
-    /* font-size: 0.9em; */
+    color: rgb(255, 255, 255);
+    background-color: rgb(44, 18, 44);
     text-align: center;
+    border: none;
+    font-size: 1.2em;
+    font-weight: bold;
   }
   
   .input-search input:focus {

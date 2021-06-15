@@ -9,10 +9,7 @@ export default function Profile_page() {
     return (
 
         <div className="profile-page">
-
             <div className="details-profile">
-                
-
             </div>
             <div className="image-profile">
                 <img src={PHOTO_PERSON} alt="" />
