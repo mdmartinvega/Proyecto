@@ -11,7 +11,7 @@ export default function Profile({profile}) {
             <div className="card">
                 <img src={PHOTO_PERSON} alt="..." />
                 <div className="description-cardProfile">
-                    <p className="name">{profile.name}</p>
+                    <p className="name">{`${profile.name}, ${profile.age}`}</p>
                     <p className="city">{profile.city}</p>
                     <div className="languages">
                         {profile.languages?.map(language => {
