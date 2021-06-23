@@ -14,7 +14,8 @@ export default function LogIn() {
                     <label htmlFor="PasswordInput">Contraseña</label>
                     <input type="password" name="password" id="PasswordInput" placeholder="***************" required/>
                 </div>
-                <button type="submit" value="Log in">Accede</button>
+                {/* TODO: El login debe acceder al dashboard de cada usuario no a través del link sino del backend */}
+                <Link to="/dashboard"><button type="submit" value="Log in">Accede</button></Link>
             </form>
             <div>
                 <Link to="/forgetPassword">¿Has olvidado tu contraseña?</Link>

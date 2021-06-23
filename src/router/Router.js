@@ -8,6 +8,7 @@ import ForgetPassword from '../pages/ForgetPassword';
 import About from '../pages/About';
 import Footer from '../components/Footer';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import Dashboard from '../pages/Dashboard';
 
 export default function Router() {
     return (
@@ -19,9 +20,11 @@ export default function Router() {
                     <Route path="/login" component={Login} />
                     <Route path="/register" component={Register} />
                     <Route path="/forgetPassword" component={ForgetPassword} />
-                    <Route path="/about" component={About} />
+                    <Route path="/about?buddy=true" component={About} />
+                    <Route path="/about?buddy=false" component={About} />
                     <Route path="/profiles" component={Profiles} />
                     <Route path="/profilePage/:id" component={ProfilePage} />
+                    <Route path="/dashboard" component={Dashboard} />
                 </Switch>
             </BrowserRouter>
             <Footer />
