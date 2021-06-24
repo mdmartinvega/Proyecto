@@ -12,6 +12,12 @@ export default function Register({setContacts}) {
         setContacts(contacts => [...contacts, form])
     };
 
+    // const selectAbledMove = e => {
+    //     if (e) {
+    //         return 
+    //     }
+    // };
+
     return (
         <div className="register-form">
             {/* <fieldset> */}
@@ -19,17 +25,22 @@ export default function Register({setContacts}) {
                 <h2>Forma parte de nuestra comunidad</h2>
                 <form onSubmit={handleSubmit}>
                 <div className="choose-option">
-
                         <div>
-                            <input type="radio" name="UserType" id="User"/>
+                            <input type="radio" name="userType" id="User" onClick={selectAbledMove}/>
                             <label for="User">Busco un buddy</label>
-                        </div>
-                    
+                        </div>                                     
                         <div>
-                            <input type="radio" name="UserType" id="Buddy"/>
+                            <input type="radio" name="UserType" id="Buddy" onClick={selectAbledLive}/>
                             <label for="Buddy">Quiero ser un buddy</label>
                         </div>
-                    
+                </div>
+                <div className="select-options">
+                    <select name="country-move" id="countryInput" disabled>
+                        <option value="">¿Dónde te mudas?</option>
+                    </select>
+                    <select name="country-live" id="countryInput" disabled>
+                        <option value="">¿Dónde vives?</option>
+                    </select>
                 </div>
                 <div className="inputs-form">
                     <label htmlFor="name">Nombre</label>
