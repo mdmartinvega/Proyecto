@@ -1,3 +1,4 @@
+import ConfigurationDashboard from '../components/ConfigurationDashboard';
 import '../styles/Dashboard.css';
 
 export default function Dashboard() {
@@ -20,11 +21,7 @@ export default function Dashboard() {
                     </div>
                 </div>
             </aside>
-            <div className="main-dashboard">
-                <h2>Configuración</h2>
-                <p>Completa tu perfil para llegar a más usuarios</p>
-                
-            </div>
+            <ConfigurationDashboard/>
             
         </div>
     )
