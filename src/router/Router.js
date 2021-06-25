@@ -20,7 +20,6 @@ export default function Router() {
                     <Route path="/login" component={Login} />
                     <Route path="/register" component={Register} />
                     <Route path="/forgetPassword" component={ForgetPassword} />
-                    {/* <Route path="/about?buddy=true" component={About} /> */}
                     <Route path="/about" component={About} />
                     <Route path="/profiles" component={Profiles} />
                     <Route path="/profilePage/:id" component={ProfilePage} />

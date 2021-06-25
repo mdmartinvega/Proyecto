@@ -1,5 +1,5 @@
 import '../styles/Register.css';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
 
 export default function Register({setContacts}) {
@@ -12,6 +12,8 @@ export default function Register({setContacts}) {
         setContacts(contacts => [...contacts, form])
     };
 
+    let { buddy } = useParams();
+
     return (
         <div className="register-form">
             {/* <fieldset> */}
@@ -20,11 +22,11 @@ export default function Register({setContacts}) {
                 <form onSubmit={handleSubmit}>
                 <div className="choose-option">
                         <div>
-                            <input type="radio" name="userType" id="User" checked={buddy === "true" ? true : false} />
+                            <input type="radio" name="userType" id="User" checked={buddy === "false" ? false : true} />
                             <label for="User">Busco un buddy</label>
                         </div>                                     
                         <div>
-                            <input type="radio" name="UserType" id="Buddy"/>
+                            <input type="radio" name="UserType" id="Buddy" checked={buddy === "true" ? true : false}/>
                             <label for="Buddy">Quiero ser un buddy</label>
                         </div>
                 </div>
