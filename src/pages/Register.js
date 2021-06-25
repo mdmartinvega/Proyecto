@@ -22,11 +22,11 @@ export default function Register({setContacts}) {
                 <form onSubmit={handleSubmit}>
                 <div className="choose-option">
                         <div>
-                            <input type="radio" name="userType" id="User" checked={buddy === "false" ? false : true} />
+                            <input type="radio" name="userType" id="User" checked={buddy === "find-a-buddy" ? true : false} />
                             <label for="User">Busco un buddy</label>
                         </div>                                     
                         <div>
-                            <input type="radio" name="UserType" id="Buddy" checked={buddy === "true" ? true : false}/>
+                            <input type="radio" name="UserType" id="Buddy" checked={buddy === "become-buddy" ? true : false}/>
                             <label for="Buddy">Quiero ser un buddy</label>
                         </div>
                 </div>
