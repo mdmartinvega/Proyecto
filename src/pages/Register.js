@@ -12,8 +12,6 @@ export default function Register({setContacts}) {
         setContacts(contacts => [...contacts, form])
     };
 
-  
-
     return (
         <div className="register-form">
             {/* <fieldset> */}
@@ -22,7 +20,7 @@ export default function Register({setContacts}) {
                 <form onSubmit={handleSubmit}>
                 <div className="choose-option">
                         <div>
-                            <input type="radio" name="userType" id="User"/>
+                            <input type="radio" name="userType" id="User" checked={buddy === "true" ? true : false} />
                             <label for="User">Busco un buddy</label>
                         </div>                                     
                         <div>

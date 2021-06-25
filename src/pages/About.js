@@ -19,7 +19,7 @@ export default function About() {
                     <h3>Be a buddy</h3>
                     <p>¿Quién no se ha sentido perdido cuando ha tenido que mudarse a un lugar que no conoce? Tú tienes la oportunidad de facilitarle ese cambio a muchas personas. ¿Tienes experiencia en un sector determinado del lugar dónde vives? Ayuda a ese compañero que llega nuevo. ¿Te sobran algunas horas al día? Guíales en sus primeros pasos en tu ciudad y aprovecha para conocer gente nueva.</p>
                     <p>Regístrate y cuéntanos más sobre tí. Tú decides si puedes ayudar a alguien!!</p>
-                    <Link to="/register">Sé un buddy</Link>
+                    <Link to="/register?buddy=true">Sé un buddy</Link>
                 </div>
             </div>
         </div>

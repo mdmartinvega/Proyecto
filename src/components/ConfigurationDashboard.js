@@ -57,8 +57,9 @@ export default function ConfigurationDashboard() {
                     <div class="others">
                         <label for="MessageInput">Háblanos sobre tí:</label>
                         <textarea type="text" id="MessageInput" name="MessageInput" placeholder=""
-                        cols="24" rows="7" required></textarea>
+                        cols="44" rows="7" required></textarea>
                     </div>
+                    
                 
                 </form>
                 
