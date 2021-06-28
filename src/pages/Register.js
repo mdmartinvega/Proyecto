@@ -1,10 +1,13 @@
 import '../styles/Register.css';
 import { Link, useParams } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
+import { useEffect } from 'react';
 
 export default function Register({setContacts}) {
 
-    const initialFormState = {name: "", lastname: "", email: "", password:""};
+    let { buddy } = useParams();
+
+    const initialFormState = {name: "", lastname: "", email: "", checked: `${buddy="become-buddy"}`};
     const [form, handleInputChange] = useForm(initialFormState); // Custom Hook
 
     const handleSubmit = e => {
@@ -12,7 +15,11 @@ export default function Register({setContacts}) {
         setContacts(contacts => [...contacts, form])
     };
 
-    let { buddy } = useParams();
+   
+
+    useEffect(() => {
+ 
+    }, [])
 
     return (
         <div className="register-form">
@@ -22,11 +29,11 @@ export default function Register({setContacts}) {
                 <form onSubmit={handleSubmit}>
                 <div className="choose-option">
                         <div>
-                            <input type="radio" name="userType" id="User" checked={buddy === "find-a-buddy" ? true : false} />
+                            <input onChange={handleInputChange} type="radio" name="userType" id="User" checked={buddy !== "become-buddy" ? true : false} />
                             <label for="User">Busco un buddy</label>
                         </div>                                     
                         <div>
-                            <input type="radio" name="UserType" id="Buddy" checked={buddy === "become-buddy" ? true : false}/>
+                            <input onChange={handleInputChange} type="radio" name="UserType" id="Buddy" checked={buddy === "be-buddy" ? true : false}/>
                             <label for="Buddy">Quiero ser un buddy</label>
                         </div>
                 </div>
