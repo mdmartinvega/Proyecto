@@ -25,8 +25,8 @@ export default function Profile({profile}) {
                         })
                         }
                     </div>
-                    <p className="other_Details">{profile.other_Details}</p>
-                    <Link to={`/profilePage/${profile.id_user}`} className="btn">Descubre más</Link>
+                    <p className="other_Details">{profile.bio}</p>
+                    <Link to={`/profilePage/${profile.id}`} className="btn">Descubre más</Link>
                 </div>
             </div>
         </div>
