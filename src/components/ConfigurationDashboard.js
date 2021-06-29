@@ -1,3 +1,4 @@
+import '../styles/ConfigurationDashboard.css';
 
 export default function ConfigurationDashboard() {
     return (

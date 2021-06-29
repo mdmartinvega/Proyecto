@@ -1,3 +1,4 @@
+import Chat from '../components/Chat';
 import ConfigurationDashboard from '../components/ConfigurationDashboard';
 import '../styles/Dashboard.css';
 
@@ -21,7 +22,10 @@ export default function Dashboard() {
                     </div>
                 </div>
             </aside>
-            <ConfigurationDashboard/>
+            <div>
+                <ConfigurationDashboard/>
+                <Chat />
+            </div>
             
         </div>
     )
