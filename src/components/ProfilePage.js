@@ -1,5 +1,5 @@
 import '../styles/ProfilePage.css';
-import {Link, useParams} from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 export default function Profile_page() {
@@ -17,32 +17,30 @@ export default function Profile_page() {
         .then(data => setDescriptionUser(data));  
         }, []);
 
-    //TODO: Hacer un fetch()-GET a un endpoint PROFILE-DETAILS
-    //TMDBAPI/FILMS/1225214 <- el ID lo capturas por useParams()
     return (
         
         <div className="profile-page">
-            <div className="details-profile">
-            </div>
-            <div className="image-profile">
+            <div className="image-profile-user">
                 <img src={PHOTO_PERSON} alt="" />
             </div>
-            <div className="description-cardProfile">
-                <p className="name">{`${descriptionUser.name}, ${descriptionUser.age}`}</p>
-                <p className="city">{descriptionUser.city}</p>
-                <div className="languages">
+            <div className="description-cardProfile-user">
+                <p className="name-user">{`${descriptionUser.name}, ${descriptionUser.age}`}</p>
+                <p className="years-living-user">Llevo viviendo en {descriptionUser.cityId}: {descriptionUser.yearsLiving} años</p>
+                <p className="city-user">{descriptionUser.cityId}</p>
+                <div className="languages-user">
                     {descriptionUser.languages?.map(language => {
                         return <div> {`${language}`} </div>
                     })
                     }
                 </div>
-                <div className="interests">
+                <div className="interests-user">
                     {descriptionUser.interests?.map(interest => {
                         return <div> {`${interest}`} </div>
                     })
                     }
                 </div>
-                <p className="other_Details">{descriptionUser.bio}</p>
+                <p className="other_Details-user">{descriptionUser.bio}</p>
+                {/*TODO: Crear página de contacto */}
                 <Link to={`/ProfilePage/${descriptionUser.id}`} className="btn">Contacta conmigo</Link>
             </div>
 
