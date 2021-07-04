@@ -10,7 +10,6 @@
 .select-options {
   padding: 5px 0px 15px 0px;
   display: flex;
-  justify-content: space-around;
   font-weight: bold;
 }
 .choose-option div input {
