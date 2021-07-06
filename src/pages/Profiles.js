@@ -1,11 +1,14 @@
 import ProfileCard from '../components/ProfileCard';
 import Filter from '../components/Filter';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import '../styles/Profiles.css';
 
 export default function Profiles() {
+
+    const {id} = useParams();
     
-    const API_PROFILES = 'http://localhost:8000/api/buddies';
+    const API_PROFILES = `http://localhost:8000/api/buddies/city/${id}`;
 
     const [profileCards, setProfileCards] = useState([]);
 

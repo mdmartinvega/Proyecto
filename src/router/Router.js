@@ -22,7 +22,7 @@ export default function Router() {
                     <Route path="/register/:buddy" component={Register} />
                     <Route path="/forgetPassword" component={ForgetPassword} />
                     <Route path="/about" component={About} />
-                    <Route path="/profiles" component={Profiles} />
+                    <Route path="/profiles/:id" component={Profiles} />
                     <Route path="/profilePage/:id" component={ProfilePage} />
                     <Route path="/dashboard" component={Dashboard} />
                 </Switch>

@@ -23,17 +23,19 @@ export default function Profile_page() {
             <div className="image-profile-user">
                 <img src={PHOTO_PERSON} alt="" />
             </div>
-            <div className="description-cardProfile-user">
+            <div>
                 <p className="name-user">{`${descriptionUser.name}, ${descriptionUser.age}`}</p>
                 <p className="years-living-user">Llevo viviendo en {descriptionUser.cityId}: {descriptionUser.yearsLiving} años</p>
                 <p className="city-user">{descriptionUser.cityId}</p>
-                <div className="languages-user">
+            </div>
+            <div className="description-cardProfile-user">
+                <div className="languages">
                     {descriptionUser.languages?.map(language => {
                         return <div> {`${language}`} </div>
                     })
                     }
                 </div>
-                <div className="interests-user">
+                <div className="languages">
                     {descriptionUser.interests?.map(interest => {
                         return <div> {`${interest}`} </div>
                     })
