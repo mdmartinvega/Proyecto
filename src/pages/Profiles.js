@@ -20,7 +20,7 @@ export default function Profiles() {
 
     return (
         <div className="profiles-page">
-            <h1>Encuentra a tu buddy en -Ciudad que hemos puesto en el input- </h1>
+            <h1>Encuentra a tu buddy en {id}</h1>
             <Filter />
             <div className="container-cards">
                 {

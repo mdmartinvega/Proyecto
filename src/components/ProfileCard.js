@@ -12,7 +12,7 @@ export default function Profile({profile}) {
                 <img src={PHOTO_PERSON} alt="..." />
                 <div className="description-cardProfile">
                     <p className="name">{`${profile.name}, ${profile.age}`}</p>
-                    <p className="city">{profile.city}</p>
+                    <p className="city">{profile.cityId}</p>
                     <div className="languages">
                         {profile.languages?.map(language => {
                             return <div> {`${language}`} </div>
