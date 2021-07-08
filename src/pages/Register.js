@@ -1,47 +1,52 @@
 import '../styles/Register.css';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
-import { useState } from 'react';
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import { useState, useEffect } from 'react';
+import { API_PROFILES } from '../Settings';
 
-export default function Register({setContacts}) {
+export default function Register({}) {
 
-    let { buddy } = useParams();
-
-    const initialFormState = {name: "", lastname: "", email: "", checked: `${buddy="become-buddy"}`, };
+    const initialFormState = {name: "", lastname: "", email: "", password: "", role: "", languages: [], interests: [], cityUser: "" };
     const [form, handleInputChange] = useForm(initialFormState); // Custom Hook
 
-    const API_PROFILES = 'http://localhost:8000/api/buddies';
+    // const API_CITIES = "http://localhost:8000/api/cities";
 
-    const[addUser, setAddUser] = useState({});
+    // const [profileCards, setProfileCards] = useState([]);
 
-    function handleSubmit(e) {
+    // useEffect(() => {
+    //     fetch(API_CITIES)
+    //     .then(response => response.json())
+    //     .then(data => setProfileCards(data));  
+    //     }, []);
+
+
+    async function handleSubmit(e){
         e.preventDefault();
 
-        fetch(API_PROFILES, {
+        const options = {
             method: "POST",
-            body: JSON.stringify(),
-            headers: {"Content-type": "application/json; charset=UTF-8"}
-        })
-        .then(response => response.json())
-        .then(json => console.log(json));
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(form)
+        }
 
-        setAddUser({});
+        const response = await fetch(API_PROFILES, options);
+        const data = await response.json();
+        console.log(data);
     }
-
     return (
         <div className="register-form">
-            {/* <fieldset> */}
-                {/* <legend>Forma parte de nuestra comunidad</legend> */}
                 <h2>Forma parte de nuestra comunidad</h2>
                 <form onSubmit={handleSubmit}>
                 <div className="choose-option">
                         <div>
-                            <input onChange={handleInputChange} type="radio" name="userType" id="User"/>
-                            <label for="User">Busco un buddy</label>
+                            <input onChange={handleInputChange} type="radio" name="userType" value="user" id="user"/>
+                            <label htmlFor="user">Busco un buddy</label>
                         </div>                                     
                         <div>
-                            <input onChange={handleInputChange} type="radio" name="UserType" id="Buddy"/>
-                            <label for="Buddy">Quiero ser un buddy</label>
+                            <input onChange={handleInputChange} type="radio" name="UserType" value="buddy" id="buddy"/>
+                            <label htmlFor="buddy">Quiero ser un buddy</label>
                         </div>
                 </div>
                 <div className="inputs-form">
@@ -52,11 +57,19 @@ export default function Register({setContacts}) {
                     <label htmlFor="lastName">Apellidos</label>
                     <input onChange={handleInputChange} value={form.lastName} name="lastName" type="text" id="lastNameInput" placeholder="Apellidos" required/>
                 </div>
-                <div className="select-options">
-                    <select name="city-move" id="cityInput" disabled>
-                        <option value={form.cityUser}>Selecciona la ciudad en la que vives o a la que te mudas</option>
-                    </select>
-                </div>
+                {/* TODO://Introdducir ciudad del user */}
+                {/* <div className="select-options">
+                    <label htmlFor="lastName">Selecciona la ciudad en la que vives o a la que te mudas</label>
+                    <select name="city-move" id="cityInput">
+                            <Autocomplete
+                                value={form.cityUser}
+                                id="input-index"
+                                options = {profileCards}
+                                getOptionLabel = {(option) => option.name}
+                                renderInput = {(params) => <TextField {...params} label="¿A dónde viajas?" variant="outlined" />}
+                            />
+                    </select> */}
+                {/* </div> */}
                 <fieldset>
                     <legend>¿Qué idiomas hablas?</legend>
                         <div className="languages">
@@ -128,10 +141,10 @@ export default function Register({setContacts}) {
                     <label htmlFor="PasswordInput">Contraseña</label>
                     <input onChange={handleInputChange} value={form.password} name="password" type="password" id="PasswordInput" placeholder="***************" required/>
                 </div>
-                {/* <div className="inputs-form">
+                <div className="inputs-form">
                     <label htmlFor="PasswordInput">Vuelve a introducir tu contraseña</label>
                     <input onChange={handleInputChange} value={form.password} name="password" type="password" id="PasswordInput" placeholder="***************" required/>
-                </div> */}
+                </div>
                 {/* TODO: Averiguar como insertar el campo vuelva a introducir contraseña y sus atributos */}
 
                 <button onSubmit = {handleSubmit} type="submit" value="Log in">Accede</button>
@@ -139,7 +152,6 @@ export default function Register({setContacts}) {
                 <div>
                 <Link to="/login">¿Ya tienes una cuenta con nosotros?</Link>
                 </div>
-            {/* </fieldset> */}
         </div>
      
     )

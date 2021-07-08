@@ -16,15 +16,26 @@ export default function Input() {
         .then(data => setProfileCards(data));  
         }, []);
 
+    const [value, setValue] = useState([]);
+    const [inputValue, setInputValue] = useState('');
+
+    let redir = () => {
+        window.location.href = `http://localhost:3000/profiles/${value}`;
+    }
+        
     return (
         <div className="input-search">
-            <Autocomplete
-                id="input-index"
-                options = {profileCards}
-                getOptionLabel = {(option) => option.name}
-                style = {{ width: 300 }}
-                renderInput = {(params) => <TextField {...params} label="¿A dónde viajas?" variant="outlined" />}
-            />
+            <form onSubmit={e => e.preventDefault() || redir()}>
+                <Autocomplete
+                    value={value}
+                    onChange={e => setValue(e.target.value)}
+                    id="input-index"
+                    options = {profileCards}
+                    getOptionLabel = {(option) => option.name}
+                    style = {{ width: 300 }}
+                    renderInput = {(params) => <TextField {...params} label="¿A dónde viajas?" variant="outlined" />}
+                />
+            </form>
             
         </div>
     )
