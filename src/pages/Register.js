@@ -41,11 +41,11 @@ export default function Register({}) {
                 <form onSubmit={handleSubmit}>
                 <div className="choose-option">
                         <div>
-                            <input onChange={handleInputChange} type="radio" name="userType" value="user" id="user"/>
+                            <input onChange={handleInputChange} type="radio" name="userType" value={form.buddy} id="user"/>
                             <label htmlFor="user">Busco un buddy</label>
                         </div>                                     
                         <div>
-                            <input onChange={handleInputChange} type="radio" name="UserType" value="buddy" id="buddy"/>
+                            <input onChange={handleInputChange} type="radio" name="userType" value={form.buddy} id="buddy"/>
                             <label htmlFor="buddy">Quiero ser un buddy</label>
                         </div>
                 </div>

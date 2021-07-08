@@ -1,8 +1,9 @@
-const API_PROFILES = 'http://localhost:8000/api/buddies';
 
-const API_REGISTER = 'http://127.0.0.1:8000/api/buddies';
+const PORT = 8000;
+const API_PROFILES = `http://localhost:${PORT}/api/buddies`;
+const LOGIN_URL = `http://localhost:${PORT}/api/login_check`;
 
 export {
     API_PROFILES,
-    API_REGISTER
+    LOGIN_URL
 };
