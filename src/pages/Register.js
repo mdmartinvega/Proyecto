@@ -13,23 +13,23 @@ export default function Register({}) {
 
 
     const [interestsList, setInterestsList] = useState([]);
-    const [languagesList, setLanguagesList] = useState([]);
-
-    
-
     useEffect(() => {
         fetch(INTERESTSLIST_URL)
         .then(response => response.json())
         .then(data => setInterestsList(data));  
         }, []);
 
+    const [languagesList, setLanguagesList] = useState([]);
     useEffect(() => {
         fetch(LANGUAGESLIST_URL)
         .then(response => response.json())
         .then(data => setLanguagesList(data));  
         }, []);
 
-
+    const [checkboxState, setCheckboxState] = useState();
+    useEffect (() => setCheckboxState(new Array(interestsList.length).fill(false)), [interestsList]);
+    console.log('CheckboxState: '+checkboxState)
+    
     async function handleSubmit(e){
         e.preventDefault();
  
@@ -84,8 +84,8 @@ export default function Register({}) {
                         <div className="languages">
                         {languagesList.map(language => {
                             return (<div>
-                                <input onChange={handleInputChange} type="checkbox" name="languagesList" id="languagesList" value={language.id} />
-                                <label for="languagesList">{language.name}</label>
+                                <input type="checkbox" name={language.name} id={language.name} value={language.id} />
+                                <label htmlFor={language.name} >{language.name}</label>
                             </div>)
                         })}
                         </div>
@@ -96,8 +96,8 @@ export default function Register({}) {
                         <div className="languages">
                         {interestsList.map(interest => {
                             return ( <div>
-                                <input onChange={handleInputChange} type="checkbox" name="interestsList" id="interestsList" value={interest.id}/>
-                                <label for="interestsList">{interest.tag}</label>
+                                <input type="checkbox" name={interest.tag} id={interest.tag} value={interest.id}/>
+                                <label htmlFor={interest.tag}>{interest.tag}</label>
                             </div>)
                         })}
                            

@@ -3,11 +3,10 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import { API_CITIES } from '../Settings';
 
 
 export default function Input() {
-
-    const API_CITIES = "http://localhost:8000/api/cities";
 
     const [cities, setCities] = useState([]);
     const [cityTarget, setCityTarget] = useState('');

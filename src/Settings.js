@@ -4,10 +4,12 @@ const API_PROFILES = `http://localhost:${PORT}/api/buddies`;
 const LOGIN_URL = `http://localhost:${PORT}/api/login_check`;
 const INTERESTSLIST_URL = "http://localhost:8000/api/buddies/interestsList";
 const LANGUAGESLIST_URL = "http://localhost:8000/api/buddies/languagesList";
+const API_CITIES = "http://localhost:8000/api/cities";
 
 export {
     API_PROFILES,
     LOGIN_URL,
     INTERESTSLIST_URL,
-    LANGUAGESLIST_URL
+    LANGUAGESLIST_URL,
+    API_CITIES
 };
