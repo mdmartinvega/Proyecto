@@ -24,6 +24,8 @@ const useForm = (initialState) => {
         });
     }
 
+    // TODO: gestionar los checkbox y actualizar el estado
+
     /*
         Decidimos que devuelva el estado (objeto form) y la función
         que actualiza una propiedad individual, en lugar del setForm
