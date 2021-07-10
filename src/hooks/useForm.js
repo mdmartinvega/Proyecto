@@ -30,7 +30,7 @@ const useForm = (initialState) => {
         Decidimos que devuelva el estado (objeto form) y la función
         que actualiza una propiedad individual, en lugar del setForm
      */
-    return [form, handleInputChange];
+    return [form, setForm, handleInputChange];
 }
 
 export {useForm};
