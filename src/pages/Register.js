@@ -1,6 +1,6 @@
 import '../styles/Register.css';
 import { useState, useEffect } from 'react';
-import { API_PROFILES, INTERESTSLIST_URL, LANGUAGESLIST_URL } from '../Settings';
+import { API_CITIES, INTERESTSLIST_URL, LANGUAGESLIST_URL } from '../Settings';
 import RegisterForm from '../components/RegisterForm';
 
 export default function Register({}) {
@@ -20,11 +20,17 @@ export default function Register({}) {
         .then(data => setLanguagesList(data));  
         }, []);
 
-    
+    const [cities, setCities] = useState([]);
+    useEffect(() => {
+        fetch(API_CITIES)
+        .then(response => response.json())
+        .then(data => setCities(data));  
+        }, []);
 
     return (
         <RegisterForm 
             languagesList = {languagesList}
-            interestsList = {interestsList}/>
+            interestsList = {interestsList}
+            cities = {cities}/>
     )
 }

@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
-export default function RegisterForm({ languagesList, interestsList }) {
+export default function RegisterForm({ languagesList, interestsList, cities }) {
 
     const initialFormState = {name: "", lastname: "", email: "", password: "", roles: false, cityUser: "" };
 
@@ -106,19 +106,13 @@ export default function RegisterForm({ languagesList, interestsList }) {
                     <label htmlFor="lastName">Apellidos</label>
                     <input onChange={handleInputChange} value={form.lastName} name="lastName" type="text" id="lastNameInput" placeholder="Apellidos" required/>
                 </div>
-                {/* TODO://Introdducir ciudad del user */}
-                {/* <div className="select-options">
-                    <label htmlFor="lastName">Selecciona la ciudad en la que vives o a la que te mudas</label>
-                    <select name="city-move" id="cityInput">
-                            <Autocomplete
-                                value={form.cityUser}
-                                id="input-index"
-                                options = {profileCards}
-                                getOptionLabel = {(option) => option.name}
-                                renderInput = {(params) => <TextField {...params} label="¿A dónde viajas?" variant="outlined" />}
-                            />
-                    </select> */}
-                {/* </div> */}
+                <div className="form-group">
+                    <label for="city_id" className="form-label">Ciudad</label>
+                    <select required onChange={handleInputChange} value={form.cityId} name="cityId">
+                        <option value="" disabled defaultValue>Selecciona la ciudad</option>
+                        {cities.map(city => <option value={city.id} key={city.id}>{city.name}</option>)}
+                    </select>
+                </div>
                 <fieldset>
                     <legend>¿Qué idiomas hablas?</legend>
                         <div className="languages">
