@@ -11,9 +11,9 @@ export default function RegisterForm({ languagesList, interestsList, cities }) {
 
     const [form, setForm, handleInputChange] = useForm(initialFormState); // Custom Hook
 
+    //Gestionar estado de intereses
     const [intCheckedState, setIntCheckedState] = useState();
         useEffect(() => setIntCheckedState(new Array(interestsList.length).fill(false)), [interestsList]);
-        const [interestIdArray, setInterestIdArray] = useState([]);
     
         const handleIntCheckboxChange = (position) => {
           const updatedintCheckedState = intCheckedState.map((item, index) =>
@@ -32,13 +32,15 @@ export default function RegisterForm({ languagesList, interestsList, cities }) {
         }
         );
         console.log('idsArrayTemp: '+intIdsArrayTemp);
-        setInterestIdArray(intIdsArrayTemp);
-        };
-        console.log("idArray intereses: "+interestIdArray)
 
+        setForm(previousState => {
+            return {...previousState, 'interests': intIdsArrayTemp}
+        });
+        };
+
+        //Gestionar estado de idiomas
         const [langCheckedState, setLangCheckedState] = useState();
         useEffect(() => setLangCheckedState(new Array(languagesList.length).fill(false)), [languagesList]);
-        const [languageIdArray, setLanguageIdArray] = useState([]);
     
         const handleLangCheckboxChange = (position) => {
           const updatedlangCheckedState = langCheckedState.map((item, index) =>
@@ -56,22 +58,18 @@ export default function RegisterForm({ languagesList, interestsList, cities }) {
             return 0;
         }
         );
-        console.log('idsArrayTemp: '+langIdsArrayTemp);
-        setLanguageIdArray(langIdsArrayTemp);
+
+
+
+        setForm(previousState => {
+            return {...previousState, 'languages': langIdsArrayTemp}
+        });
         };
-        console.log("idArray idiomas: "+languageIdArray)
-       
+
+
     //Método POST del formulario + intereses + idiomas
     async function handleSubmit(e){
         e.preventDefault();
-
-        await setForm(previousState => {
-            return {...previousState, 'interests': interestIdArray}
-        });
-
-        await setForm(previousState => {
-            return {...previousState, 'languages': languageIdArray}
-        });
  
         const options = {
             method: "POST",

@@ -31,13 +31,13 @@ export default function Profile_page() {
             <div className="description-cardProfile-user">
                 <div className="languages">
                     {descriptionUser.languages?.map(language => {
-                        return <div> {`${language}`} </div>
+                        return <div> {`${language.name}`} </div>
                     })
                     }
                 </div>
                 <div className="languages">
                     {descriptionUser.interests?.map(interest => {
-                        return <div> {`${interest}`} </div>
+                        return <div> {`${interest.tag}`} </div>
                     })
                     }
                 </div>

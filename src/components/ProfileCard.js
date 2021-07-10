@@ -15,13 +15,13 @@ export default function Profile({profile}) {
                     <p className="city">{profile.cityId}</p>
                     <div className="languages">
                         {profile.languages?.map(language => {
-                            return <div> {`${language}`} </div>
+                            return <div> {`${language.name}`} </div>
                         })
                         }
                     </div>
                     <div className="interests">
                         {profile.interests?.map(interest => {
-                            return <div> {`${interest}`} </div>
+                            return <div> {`${interest.tag}`} </div>
                         })
                         }
                     </div>
