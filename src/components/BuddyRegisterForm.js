@@ -2,12 +2,10 @@ import { Link } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
 import { API_PROFILES } from '../Settings';
 import { useState, useEffect } from 'react';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
 
-export default function RegisterForm({ languagesList, interestsList, cities }) {
+export default function BuddyRegisterForm({ languagesList, interestsList, cities }) {
 
-    const initialFormState = {name: "", lastname: "", email: "", password: "", roles: false, cityUser: "" };
+    const initialFormState = {name: "", lastname: "", email: "", password: "", yearsLiving: "", cityUser: "", roles: "[ROLE_BUDDY]" };
 
     const [form, setForm, handleInputChange] = useForm(initialFormState); // Custom Hook
 
@@ -59,13 +57,10 @@ export default function RegisterForm({ languagesList, interestsList, cities }) {
         }
         );
 
-
-
         setForm(previousState => {
             return {...previousState, 'languages': langIdsArrayTemp}
         });
         };
-
 
     //Método POST del formulario + intereses + idiomas
     async function handleSubmit(e){
@@ -84,18 +79,18 @@ export default function RegisterForm({ languagesList, interestsList, cities }) {
     }
     return (
         <div className="register-form">
-                <h2>Forma parte de nuestra comunidad</h2>
+                <h2>Únete como buddy a nuestra comunidad</h2>
                 <form onSubmit={handleSubmit}>
-                <div className="choose-option">
+                {/* <div className="choose-option">
                         <div>
-                            <input onChange={handleInputChange} type="radio" name="buddySearch" value={form.roles} id="user"/>
+                            <input onChange={handleRadioChange} type="radio" name="buddySearch" value={!roles} id="user"/>
                             <label htmlFor="user">Busco un buddy</label>
                         </div>                                     
                         <div>
-                            <input onChange={handleInputChange} type="radio" name="buddySearch" value={!form.roles} id="buddy"/>
+                            <input onChange={handleRadioChange} type="radio" name="buddySearch" value={roles} id="buddy"/>
                             <label htmlFor="buddy">Quiero ser un buddy</label>
                         </div>
-                </div>
+                </div> */}
                 <div className="inputs-form">
                     <label htmlFor="name">Nombre</label>
                     <input onChange={handleInputChange} value={form.name} name="name" type="text" id="nameInput" placeholder="Nombre" required/>
@@ -104,12 +99,20 @@ export default function RegisterForm({ languagesList, interestsList, cities }) {
                     <label htmlFor="lastName">Apellidos</label>
                     <input onChange={handleInputChange} value={form.lastName} name="lastName" type="text" id="lastNameInput" placeholder="Apellidos" required/>
                 </div>
-                <div className="form-group">
-                    <label for="city_id" className="form-label">Ciudad</label>
+                <div className="inputs-form">
+                <label htmlFor="ageInput">¿Cuántos años tienes?</label>
+                    <input type="number" id="ageInput" name="AgeInput" value={form.age} min="0" max="120" placeholder="Escoge"/>
+                </div>
+                <div className="inputs-form">
+                    <label for="city_id" className="form-label">¿Dónde vives?</label>
                     <select required onChange={handleInputChange} value={form.cityId} name="cityId">
                         <option value="" disabled defaultValue>Selecciona la ciudad</option>
                         {cities.map(city => <option value={city.id} key={city.id}>{city.name}</option>)}
                     </select>
+                </div>
+                <div className="inputs-form">
+                    <label htmlFor="yearsLivingInput">¿Cuántos años llevas viviendo allí??</label>
+                    <input type="number" id="yearsLivingInput" name="yearsLivingInput" value={form.yearsLiving} min="0" max="120" placeholder="Escoge"/>
                 </div>
                 <fieldset>
                     <legend>¿Qué idiomas hablas?</legend>
@@ -125,16 +128,22 @@ export default function RegisterForm({ languagesList, interestsList, cities }) {
 
                 <fieldset>
                     <legend>¿Qué buscas o qué puedes ofrecer?</legend>          
-                        <div className="languages">
+                        <div className="interests">
                         {interestsList.map((interest, index) => {
                             return ( <div>
                                 <input  onChange={() => handleIntCheckboxChange(index)} checked={intCheckedState[index]} type="checkbox" name={interest.tag} id={interest.tag} value={interest.id}/>
                                 <label htmlFor={interest.tag}>{interest.tag}</label>
                             </div>)
-                        })}
-                           
+                        })}                       
                         </div>
                 </fieldset>
+                <div class="inputs-form">
+                    <label for="MessageInput">Háblanos sobre tí</label>
+                    <br />
+                    <textarea type="password" id="MessageInput" name="MessageInput" placeholder="Escriba aquí su texto"
+                        cols="54" rows="7" required></textarea>
+                </div>
+                
                 <div className="inputs-form">
                     <label htmlFor="EmailInput">Email</label>
                     <input onChange={handleInputChange} value={form.email} name="email" type="email" id="EmailInput" placeholder="tuemail@tuemail.com" required/>
@@ -148,7 +157,7 @@ export default function RegisterForm({ languagesList, interestsList, cities }) {
                     <input onChange={handleInputChange} value={form.passwordRepeat} name="password" type="password" id="PasswordInput" placeholder="***************" required/>
                 </div>
                 {/* TODO: Averiguar como insertar el campo vuelva a introducir contraseña y sus atributos */}
-
+                {/* TODO: Agregar link que lleve a la página de login */}
                 <button onSubmit = {handleSubmit} type="submit" value="Log in">Accede</button>
                 </form>
                 <div>

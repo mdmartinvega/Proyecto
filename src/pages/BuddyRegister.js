@@ -1,9 +1,9 @@
 import '../styles/Register.css';
 import { useState, useEffect } from 'react';
 import { API_CITIES, INTERESTSLIST_URL, LANGUAGESLIST_URL } from '../Settings';
-import RegisterForm from '../components/RegisterForm';
+import BuddyRegisterForm from '../components/BuddyRegisterForm';
 
-export default function Register({}) {
+export default function BuddyRegister({}) {
 
     const [interestsList, setInterestsList] = useState([]);
     useEffect(() => {
@@ -28,7 +28,7 @@ export default function Register({}) {
         }, []);
 
     return (
-        <RegisterForm 
+        <BuddyRegisterForm 
             languagesList = {languagesList}
             interestsList = {interestsList}
             cities = {cities}/>
