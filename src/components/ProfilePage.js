@@ -1,6 +1,7 @@
 import '../styles/ProfilePage.css';
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { red } from '@material-ui/core/colors';
 
 export default function Profile_page() {
 

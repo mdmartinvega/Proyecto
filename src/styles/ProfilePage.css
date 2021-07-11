@@ -8,6 +8,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 70vh;
 }
 
 .infoUser {
@@ -16,7 +17,7 @@
     margin: auto;
     align-items: center;
     justify-content: center;
-    height: 80vh;
+    
 }
 
 .image-profile-user {
