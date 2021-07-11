@@ -20,11 +20,13 @@ export default function Profiles() {
     
     let profileCards = apiResults?.results;
     let city = apiResults?.city;
+    let total = apiResults.total;
 
     return (
         <div className="profiles-page">
             <h1>Encuentra a tu buddy en {city?.name}</h1>
             <Filter />
+            <h3>Hemos encontrado un total de {total} buddies en esta ciudad:</h3>
             <div className="container-cards">
                 {
                     profileCards?.map(profile => {

@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
-import { API_PROFILES } from '../Settings';
+import { API_REGISTER_BUDDY } from '../Settings';
 import { useState, useEffect } from 'react';
 
 export default function BuddyRegisterForm({ languagesList, interestsList, cities }) {
 
-    const initialFormState = {name: "", lastname: "", email: "", password: "", yearsLiving: "", cityUser: "", roles: "[ROLE_BUDDY]" };
+    const initialFormState = {name: "", lastname: "", email: "", password: "", age: "", yearsLiving: "", cityUser: "", roles: "['ROLE_BUDDY']", bio:""};
 
     const [form, setForm, handleInputChange] = useForm(initialFormState); // Custom Hook
 
@@ -72,7 +72,7 @@ export default function BuddyRegisterForm({ languagesList, interestsList, cities
             body: JSON.stringify(form)
         }
 
-        const response = await fetch(API_PROFILES, options);
+        const response = await fetch(API_REGISTER_BUDDY, options);
         const data = await response.json();
         console.log(data);
 
@@ -100,8 +100,8 @@ export default function BuddyRegisterForm({ languagesList, interestsList, cities
                     <input onChange={handleInputChange} value={form.lastName} name="lastName" type="text" id="lastNameInput" placeholder="Apellidos" required/>
                 </div>
                 <div className="inputs-form">
-                <label htmlFor="ageInput">¿Cuántos años tienes?</label>
-                    <input type="number" id="ageInput" name="AgeInput" value={form.age} min="0" max="120" placeholder="Escoge"/>
+                <label htmlFor="age">¿Cuántos años tienes?</label>
+                    <input onChange={handleInputChange} type="number" id="age" name="age" value={form.age} min="0" max="120" placeholder="Escoge"/>
                 </div>
                 <div className="inputs-form">
                     <label for="city_id" className="form-label">¿Dónde vives?</label>
@@ -111,8 +111,8 @@ export default function BuddyRegisterForm({ languagesList, interestsList, cities
                     </select>
                 </div>
                 <div className="inputs-form">
-                    <label htmlFor="yearsLivingInput">¿Cuántos años llevas viviendo allí??</label>
-                    <input type="number" id="yearsLivingInput" name="yearsLivingInput" value={form.yearsLiving} min="0" max="120" placeholder="Escoge"/>
+                    <label htmlFor="yearsLiving">¿Cuántos años llevas viviendo allí??</label>
+                    <input onChange={handleInputChange} type="number" id="yearsLivingInput" name="yearsLiving" value={form.yearsLiving} min="0" max="120" placeholder="Escoge"/>
                 </div>
                 <fieldset>
                     <legend>¿Qué idiomas hablas?</legend>
@@ -127,7 +127,7 @@ export default function BuddyRegisterForm({ languagesList, interestsList, cities
                 </fieldset>
 
                 <fieldset>
-                    <legend>¿Qué buscas o qué puedes ofrecer?</legend>          
+                    <legend>¿Qué puedes ofrecer?</legend>          
                         <div className="interests">
                         {interestsList.map((interest, index) => {
                             return ( <div>
@@ -138,9 +138,9 @@ export default function BuddyRegisterForm({ languagesList, interestsList, cities
                         </div>
                 </fieldset>
                 <div class="inputs-form">
-                    <label for="MessageInput">Háblanos sobre tí</label>
+                    <label htmlFor="bio">Háblanos sobre tí</label>
                     <br />
-                    <textarea type="password" id="MessageInput" name="MessageInput" placeholder="Escriba aquí su texto"
+                    <textarea onChange={handleInputChange} type="password" id="bio" name="bio" value={form.bio} placeholder="Escriba aquí su texto"
                         cols="54" rows="7" required></textarea>
                 </div>
                 

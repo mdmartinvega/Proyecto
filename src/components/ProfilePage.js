@@ -20,31 +20,36 @@ export default function Profile_page() {
     return (
         
         <div className="profile-page">
-            <div className="image-profile-user">
-                <img src={PHOTO_PERSON} alt="" />
-            </div>
-            <div>
-                <p className="name-user">{`${descriptionUser.name}, ${descriptionUser.age}`}</p>
-                <p className="years-living-user">Llevo viviendo en {descriptionUser.cityId}: {descriptionUser.yearsLiving} años</p>
-                <p className="city-user">{descriptionUser.cityId}</p>
-            </div>
-            <div className="description-cardProfile-user">
-                <div className="languages">
-                    {descriptionUser.languages?.map(language => {
-                        return <div> {`${language.name}`} </div>
-                    })
-                    }
+            <div className="infoUser">
+                <div className="image-profile-user">
+                    <img src={PHOTO_PERSON} alt="" />
+                    <p className="name-user">{`${descriptionUser.name}, ${descriptionUser.age}`}</p>
+                    <p className="city-user">{descriptionUser.cityId}</p>
                 </div>
-                <div className="languages">
-                    {descriptionUser.interests?.map(interest => {
-                        return <div> {`${interest.tag}`} </div>
-                    })
-                    }
+                <div className="info-profile-user">
+                    <p className="years-living-user">Llevo viviendo en {descriptionUser.cityId}: {descriptionUser.yearsLiving} años</p>
+                    <p className="other_Details-user">{descriptionUser.bio}</p>
+                    <div className="description-cardProfile-user">
+                        <div className="languages">
+                            {descriptionUser.languages?.map(language => {
+                                return <div> {`${language.name}`} </div>
+                            })
+                            }
+                        </div>
+                        <div className="interests">
+                            {descriptionUser.interests?.map(interest => {
+                                return <div> {`${interest.tag}`} </div>
+                            })
+                            }
+                        </div>
+                    </div>
                 </div>
-                <p className="other_Details-user">{descriptionUser.bio}</p>
+            </div>
                 {/*TODO: Crear página de contacto */}
+            <div className="link-to-contact">
                 <Link to={`/ProfilePage/${descriptionUser.id}`} className="btn">Contacta conmigo</Link>
             </div>
+            
 
         </div>
     )

@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
-import { API_PROFILES } from '../Settings';
+import { API_REGISTER_USER } from '../Settings';
 import { useState, useEffect } from 'react';
 
 export default function UserRegisterForm({ languagesList, interestsList, cities }) {
 
-    const initialFormState = {name: "", lastname: "", email: "", password: "", cityUser: "", roles: "" };
+    const initialFormState = {name: "", lastname: "", email: "", password: "", age: "", yearsLiving: "", cityUser: "", roles: "['ROLE_BUDDY']", bio:""};
 
     const [form, setForm, handleInputChange] = useForm(initialFormState); // Custom Hook
 
@@ -72,25 +72,15 @@ export default function UserRegisterForm({ languagesList, interestsList, cities 
             body: JSON.stringify(form)
         }
 
-        const response = await fetch(API_PROFILES, options);
+        const response = await fetch(API_REGISTER_USER, options);
         const data = await response.json();
         console.log(data);
 
     }
     return (
         <div className="register-form">
-                <h2>Forma parte de nuestra comunidad</h2>
+                <h2>Únete a nuestra comunidad para encontrar tu buddy</h2>
                 <form onSubmit={handleSubmit}>
-                {/* <div className="choose-option">
-                        <div>
-                            <input onChange={handleRadioChange} type="radio" name="buddySearch" value={!roles} id="user"/>
-                            <label htmlFor="user">Busco un buddy</label>
-                        </div>                                     
-                        <div>
-                            <input onChange={handleRadioChange} type="radio" name="buddySearch" value={roles} id="buddy"/>
-                            <label htmlFor="buddy">Quiero ser un buddy</label>
-                        </div>
-                </div> */}
                 <div className="inputs-form">
                     <label htmlFor="name">Nombre</label>
                     <input onChange={handleInputChange} value={form.name} name="name" type="text" id="nameInput" placeholder="Nombre" required/>
@@ -99,8 +89,12 @@ export default function UserRegisterForm({ languagesList, interestsList, cities 
                     <label htmlFor="lastName">Apellidos</label>
                     <input onChange={handleInputChange} value={form.lastName} name="lastName" type="text" id="lastNameInput" placeholder="Apellidos" required/>
                 </div>
-                <div className="form-group">
-                    <label for="city_id" className="form-label">Ciudad</label>
+                <div className="inputs-form">
+                <label htmlFor="age">¿Cuántos años tienes?</label>
+                    <input onChange={handleInputChange} type="number" id="age" name="age" value={form.age} min="0" max="120" placeholder="Escoge"/>
+                </div>
+                <div className="inputs-form">
+                    <label for="city_id" className="form-label">¿A dónde te mudas?</label>
                     <select required onChange={handleInputChange} value={form.cityId} name="cityId">
                         <option value="" disabled defaultValue>Selecciona la ciudad</option>
                         {cities.map(city => <option value={city.id} key={city.id}>{city.name}</option>)}
@@ -119,17 +113,23 @@ export default function UserRegisterForm({ languagesList, interestsList, cities 
                 </fieldset>
 
                 <fieldset>
-                    <legend>¿Qué buscas o qué puedes ofrecer?</legend>          
-                        <div className="languages">
+                    <legend>¿Qué ayuda necesitas?</legend>          
+                        <div className="interests">
                         {interestsList.map((interest, index) => {
                             return ( <div>
                                 <input  onChange={() => handleIntCheckboxChange(index)} checked={intCheckedState[index]} type="checkbox" name={interest.tag} id={interest.tag} value={interest.id}/>
                                 <label htmlFor={interest.tag}>{interest.tag}</label>
                             </div>)
-                        })}
-                           
+                        })}                       
                         </div>
                 </fieldset>
+                <div class="inputs-form">
+                    <label htmlFor="bio">Háblanos sobre tí</label>
+                    <br />
+                    <textarea onChange={handleInputChange} type="password" id="bio" name="bio" value={form.bio} placeholder="Escriba aquí su texto"
+                        cols="54" rows="7" required></textarea>
+                </div>
+                
                 <div className="inputs-form">
                     <label htmlFor="EmailInput">Email</label>
                     <input onChange={handleInputChange} value={form.email} name="email" type="email" id="EmailInput" placeholder="tuemail@tuemail.com" required/>
@@ -144,7 +144,6 @@ export default function UserRegisterForm({ languagesList, interestsList, cities 
                 </div>
                 {/* TODO: Averiguar como insertar el campo vuelva a introducir contraseña y sus atributos */}
                 {/* TODO: Agregar link que lleve a la página de login */}
-
                 <button onSubmit = {handleSubmit} type="submit" value="Log in">Accede</button>
                 </form>
                 <div>

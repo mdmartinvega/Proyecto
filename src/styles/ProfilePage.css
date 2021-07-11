@@ -1,18 +1,65 @@
 .profile-page {
-    height: 75vh;
     width: 85%;
     border-radius: 30px;
     margin: 50px auto;
-    background: linear-gradient(to bottom, rgba(219, 218, 218, 0.3), rgb(246, 227, 243)), url(../images/luggage-1149289_1920.jpg);
+    background: linear-gradient(to bottom, rgba(83, 83, 83, 0.3), rgb(251, 246, 251)), url(../images/luggage-1149289_1920.jpg);
     background-position: right;
     background-size: cover;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.details-profile {
+.infoUser {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+.image-profile-user {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.image-profile-user img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 3px solid rebeccapurple;
+}
+
+.image-profile-user p {
+    font-size: 1.5em;
+    font-weight: bold;
+    font-style: italic;
+    color: rgb(39, 39, 39);
     
 }
+.info-profile-user {
+    width: 50%;
+}
 
-.profile-page img {
+.profile-page .link-to-contact {
+    margin: auto;
+    margin-bottom: 60px;
+}
 
+.link-to-contact a {
+    text-decoration: none;
+    border: 1px solid rebeccapurple;
+    border-radius: 30px;
+    padding: 15px;
+    color: white;
+    background-color: rebeccapurple;
+}
+
+.description-cardProfile-user .interests {
+    font-size: 1.3em;
+}
+.description-cardProfile-user .languages {
+    font-size: 1.3em;
 }
