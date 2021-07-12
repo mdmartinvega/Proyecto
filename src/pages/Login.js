@@ -4,10 +4,10 @@ import { useForm } from "../hooks/useForm";
 import { useAuthContext } from "../context/AuthContext";
 import { LOGIN_URL } from '../Settings';
 
-export default function LogIn() {
+export default function LogIn(languagesList, interestsList) {
 
     const initialFormState = {username: "", password: ""};
-    const [form, handleChange] = useForm(initialFormState);
+    const [form, handleChange] = useForm(initialFormState, languagesList, interestsList);
     const {signIn, isAuthenticated} = useAuthContext();
     const history = useHistory();
 
@@ -28,7 +28,7 @@ export default function LogIn() {
             signIn(data.token, data.user);
             history.push("/dashboard")
         } else {
-            alert("Login incorrecto");
+            alert("Acceso incorrecto, verifique el usuario y la contraseña");
         }
     };
     return isAuthenticated ? <Redirect to="/dashboard" /> : (

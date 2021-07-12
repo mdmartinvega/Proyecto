@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const useForm = (initialState) => {
+const useForm = (initialState, languagesList, interestsList) => {
     /* 
         Custom Hook que gestiona los estados de cualquier formulario, con cualquier tamaño.
         Necesita como estado inicial un objeto que tenga tantas propiedades
@@ -24,13 +24,64 @@ const useForm = (initialState) => {
         });
     }
 
-    // TODO: gestionar los checkbox y actualizar el estado
+    //Gestionar estado de idiomas
+    const [langCheckedState, setLangCheckedState] = useState();
+    useEffect(() => setLangCheckedState(new Array(languagesList.length).fill(false)), [languagesList]);
+
+    const handleLangCheckboxChange = (position) => {
+        const updatedlangCheckedState = langCheckedState.map((item, index) =>
+        index === position ? !item : item
+        );
+        setLangCheckedState(updatedlangCheckedState);
+        console.log("langCheckedState: "+langCheckedState)
+
+    const langIdsArrayTemp = [];
+    updatedlangCheckedState.map(
+    (state, index) => {
+        if (state === true) {
+        langIdsArrayTemp.push(languagesList[index].id);
+        }
+        return 0;
+    }
+    );
+
+    setForm(previousState => {
+        return {...previousState, 'languages': langIdsArrayTemp}
+    });
+    };
+
+    //Gestionar estado de intereses
+    const [intCheckedState, setIntCheckedState] = useState();
+        useEffect(() => setIntCheckedState(new Array(interestsList.length).fill(false)), [interestsList]);
+    
+    const handleIntCheckboxChange = (position) => {
+        const updatedintCheckedState = intCheckedState.map((item, index) =>
+        index === position ? !item : item
+        );
+        setIntCheckedState(updatedintCheckedState);
+        console.log("intCheckedState: "+intCheckedState)
+
+    const intIdsArrayTemp = [];
+    updatedintCheckedState.map(
+    (state, index) => {
+        if (state === true) {
+        intIdsArrayTemp.push(interestsList[index].id);
+        }
+        return 0;
+    }
+    );
+    console.log('idsArrayTemp: '+intIdsArrayTemp);
+
+    setForm(previousState => {
+        return {...previousState, 'interests': intIdsArrayTemp}
+    });
+    };
 
     /*
         Decidimos que devuelva el estado (objeto form) y la función
         que actualiza una propiedad individual, en lugar del setForm
      */
-    return [form, setForm, handleInputChange];
+    return [form, handleInputChange, handleLangCheckboxChange, langCheckedState, handleIntCheckboxChange, intCheckedState];
 }
 
 export {useForm};

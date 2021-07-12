@@ -1,66 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
 import { API_REGISTER_USER } from '../Settings';
-import { useState, useEffect } from 'react';
 
 export default function UserRegisterForm({ languagesList, interestsList, cities }) {
 
     const initialFormState = {name: "", lastname: "", email: "", password: "", age: "", yearsLiving: "", cityUser: "", roles: "['ROLE_BUDDY']", bio:""};
 
-    const [form, setForm, handleInputChange] = useForm(initialFormState); // Custom Hook
-
-    //Gestionar estado de intereses
-    const [intCheckedState, setIntCheckedState] = useState();
-        useEffect(() => setIntCheckedState(new Array(interestsList.length).fill(false)), [interestsList]);
-    
-        const handleIntCheckboxChange = (position) => {
-          const updatedintCheckedState = intCheckedState.map((item, index) =>
-            index === position ? !item : item
-          );
-          setIntCheckedState(updatedintCheckedState);
-          console.log("intCheckedState: "+intCheckedState)
-
-        const intIdsArrayTemp = [];
-        updatedintCheckedState.map(
-        (state, index) => {
-            if (state === true) {
-            intIdsArrayTemp.push(interestsList[index].id);
-            }
-            return 0;
-        }
-        );
-        console.log('idsArrayTemp: '+intIdsArrayTemp);
-
-        setForm(previousState => {
-            return {...previousState, 'interests': intIdsArrayTemp}
-        });
-        };
-
-        //Gestionar estado de idiomas
-        const [langCheckedState, setLangCheckedState] = useState();
-        useEffect(() => setLangCheckedState(new Array(languagesList.length).fill(false)), [languagesList]);
-    
-        const handleLangCheckboxChange = (position) => {
-          const updatedlangCheckedState = langCheckedState.map((item, index) =>
-            index === position ? !item : item
-          );
-          setLangCheckedState(updatedlangCheckedState);
-          console.log("langCheckedState: "+langCheckedState)
-
-        const langIdsArrayTemp = [];
-        updatedlangCheckedState.map(
-        (state, index) => {
-            if (state === true) {
-            langIdsArrayTemp.push(languagesList[index].id);
-            }
-            return 0;
-        }
-        );
-
-        setForm(previousState => {
-            return {...previousState, 'languages': langIdsArrayTemp}
-        });
-        };
+    const [form, handleInputChange, handleLangCheckboxChange, langCheckedState, handleIntCheckboxChange, intCheckedState] = useForm(initialFormState, languagesList, interestsList); // Custom Hook
 
     //Método POST del formulario + intereses + idiomas
     async function handleSubmit(e){
