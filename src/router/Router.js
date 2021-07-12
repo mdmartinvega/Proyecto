@@ -10,6 +10,7 @@ import Footer from '../components/Footer';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Dashboard from '../pages/Dashboard';
 import UserRegister from '../pages/UserRegister';
+import Contact from '../pages/Contact';
 
 
 export default function Router() {
@@ -27,6 +28,7 @@ export default function Router() {
                         <Route path="/profiles/:id" component={Profiles} />
                         <Route path="/profilePage/:id" component={ProfilePage} />
                         <Route path="/dashboard" component={Dashboard} />
+                        <Route path="/contact" component={Contact} />
                     </Switch>
                 </BrowserRouter>
             <Footer />

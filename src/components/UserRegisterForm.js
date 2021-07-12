@@ -72,7 +72,7 @@ export default function UserRegisterForm({ languagesList, interestsList, cities 
                 <div class="inputs-form">
                     <label htmlFor="bio">Háblanos sobre tí</label>
                     <br />
-                    <textarea onChange={handleInputChange} type="password" id="bio" name="bio" value={form.bio} placeholder="Escriba aquí su texto"
+                    <textarea onChange={handleInputChange} type="text" id="bio" name="bio" value={form.bio} placeholder="Escriba aquí su texto"
                         cols="54" rows="7" required></textarea>
                 </div>
                 
