@@ -1,7 +1,6 @@
 import '../styles/ProfilePage.css';
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { red } from '@material-ui/core/colors';
 
 export default function Profile_page() {
 
@@ -16,6 +15,7 @@ export default function Profile_page() {
         fetch(API_PROFILES)
         .then(response => response.json())
         .then(data => setDescriptionUser(data));  
+        // eslint-disable-next-line
         }, []);
 
     return (

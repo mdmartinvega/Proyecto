@@ -1,15 +1,18 @@
 import { Link } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
 import { API_REGISTER_BUDDY } from '../Settings';
+import { useState } from 'react';
 
 export default function BuddyRegisterForm({ languagesList, interestsList, cities }) {
 
-    const initialFormState = {name: "", lastname: "", email: "", password: "", age: "", yearsLiving: "", cityUser: "", roles: "['ROLE_BUDDY']", bio:""};
-
+    const initialFormState = {name: "", lastname: "", email: "", password: "", age: "", yearsLiving: "", image:"", roles: "['ROLE_BUDDY']", bio:""};
     const [form, handleInputChange, handleLangCheckboxChange, langCheckedState, handleIntCheckboxChange, intCheckedState] = useForm(initialFormState, languagesList, interestsList); // Custom Hook
+    const [image, setImage] = useState('');
 
+     //Manejo de la imagen
+     const handleImageUploaded = e => setImage(e.target.files[0]);
 
-    //Método POST del formulario + intereses + idiomas
+    //Método POST del formulario + imagen
     async function handleSubmit(e){
         e.preventDefault();
  
@@ -23,7 +26,20 @@ export default function BuddyRegisterForm({ languagesList, interestsList, cities
         const data = await response.json();
         console.log(data);
 
+        const formImage = new FormData();
+        formImage.append("File", image);
+
+        const optionsImg = {
+            method: "POST",
+            // headers: {"Content-Type": "multipart/form-data"},
+            body: formImage
+        }
+
+        const responseImage = await fetch(`http://localhost:8000/api/buddies/imageupdated/${data.id}`, optionsImg);
+        const dataImage = await responseImage;
+        console.log(dataImage);
     }
+
     return (
         <div className="register-form">
                 <h2>Únete como buddy a nuestra comunidad</h2>
@@ -90,7 +106,11 @@ export default function BuddyRegisterForm({ languagesList, interestsList, cities
                     <textarea onChange={handleInputChange} type="password" id="bio" name="bio" value={form.bio} placeholder="Escriba aquí su texto"
                         cols="54" rows="7" required></textarea>
                 </div>
-                
+                <div class="inputs-form">
+                    <label htmlFor="image">Queremos saber más, sube una foto que te identifique</label>
+                    <input onChange={handleImageUploaded} name="image" type="file" id="image" accept="png jpg jpeg" />
+                </div>
+
                 <div className="inputs-form">
                     <label htmlFor="EmailInput">Email</label>
                     <input onChange={handleInputChange} value={form.email} name="email" type="email" id="EmailInput" placeholder="tuemail@tuemail.com" required/>

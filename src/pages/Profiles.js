@@ -15,7 +15,8 @@ export default function Profiles() {
     useEffect(() => {
         fetch(API_PROFILES)
         .then(response => response.json())
-        .then(data => setApiResults(data));  
+        .then(data => setApiResults(data));
+        // eslint-disable-next-line  
         }, []);
     
     let profileCards = apiResults?.results;

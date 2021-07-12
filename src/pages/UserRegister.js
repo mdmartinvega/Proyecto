@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { API_CITIES, INTERESTSLIST_URL, LANGUAGESLIST_URL } from '../Settings';
 import UserRegisterForm from '../components/UserRegisterForm';
 
+// eslint-disable-next-line
 export default function UserRegister({}) {
 
     const [interestsList, setInterestsList] = useState([]);

@@ -4,12 +4,10 @@ import '../styles/ProfileCard.css';
 
 export default function Profile({profile}) {
 
-    const PHOTO_PERSON = "http://placeimg.com/370/250/people";
-
     return (
         <div>
             <div className="card">
-                <img src={PHOTO_PERSON} alt="..." />
+                <img src={profile.image} alt="..." />
                 <div className="description-cardProfile">
                     <p className="name">{`${profile.name}, ${profile.age}`}</p>
                     <p className="city">{profile.cityId}</p>

@@ -1,5 +1,4 @@
 import '../styles/ForgetPassword.css';
-import { Link } from 'react-router-dom';
 
 export default function ForgetPassword() {
     return (
