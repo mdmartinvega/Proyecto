@@ -46,9 +46,8 @@ export default function Profile_page() {
                     </div>
                 </div>
             </div>
-                {/*TODO: Crear página de contacto */}
             <div className="link-to-contact">
-                <Link to={`/ProfilePage/${descriptionUser.id}`} className="btn">Contacta conmigo</Link>
+                <Link to="/contact" className="btn">Contacta conmigo</Link>
             </div>
             
 

@@ -12,9 +12,8 @@ export default function NavBar() {
             <Link to="/"><img src={logo} alt="" /></Link>
             <div className="buttons-navbar">
                 <NavLink to="/about">Qué somos</NavLink>
-                <NavLink to="/register">Únete!</NavLink>
-                <NavLink to="/login">Accede</NavLink>
-                <NavLink to="/logout" onClick={signOut}>Cerrar sesión</NavLink>
+                <NavLink to="/dashboard">Mi Perfil</NavLink>
+                <NavLink to="/" onClick={signOut}>Cerrar sesión</NavLink>
             </div>
         </div>
     ) : (
@@ -22,7 +21,6 @@ export default function NavBar() {
             <Link to="/"><img src={logo} alt="" /></Link>
             <div className="buttons-navbar">
                 <NavLink to="/about">Qué somos</NavLink>
-                <NavLink to="/register">Únete!</NavLink>
                 <NavLink to="/login">Accede</NavLink></div>
         </div>
 )

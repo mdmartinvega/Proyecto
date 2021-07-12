@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import '../styles/Profiles.css';
 
 export default function Profiles() {
-
+    // TODO: Hacer otro endpoint segun rol
     const {id} = useParams();
     
     const API_PROFILES = `http://localhost:8000/api/buddies/city/${id}`;

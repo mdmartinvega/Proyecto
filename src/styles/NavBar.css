@@ -17,8 +17,8 @@
 .navbar img {
     width: 120px;
 }
-.buttons-navbar a:nth-child(3),
-.buttons-navbar a:nth-child(4) {
+.buttons-navbar a:nth-child(2),
+.buttons-navbar a:nth-child(3) {
     border: 2px solid rebeccapurple;
     background-color: white;
 }
