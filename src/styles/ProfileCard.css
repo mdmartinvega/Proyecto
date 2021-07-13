@@ -4,6 +4,10 @@
     padding: 15px;
 }
 
+.card img {
+    width: 350px;
+}
+
 .card .description-cardProfile {
    margin-top: 10px;
 }

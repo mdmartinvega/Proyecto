@@ -18,6 +18,7 @@ export default function Profiles() {
         .then(data => setApiResults(data));
         // eslint-disable-next-line  
         }, []);
+
     
     let profileCards = apiResults?.results;
     let city = apiResults?.city;

@@ -1,6 +1,7 @@
-import Chat from '../components/Chat';
+import Messages from '../components/Messages';
 import ConfigurationDashboard from '../components/ConfigurationDashboard';
 import '../styles/Dashboard.css';
+import { NavLink } from 'react-router-dom';
 
 export default function Dashboard() {
     return (
@@ -12,19 +13,16 @@ export default function Dashboard() {
                 
                 <div class="list">
                     <div>
-                        <p>Conversaciones</p>
+                        <NavLink to="dashboard/messages">Mensajes</NavLink>
                     </div>
                     <div>
-                        <p>Contactos</p>
-                    </div>
-                    <div>
-                        <p>Configuración</p>
+                        <NavLink to="dashboard/configuration">Configuración</NavLink>
                     </div>
                 </div>
             </aside>
             <div>
-                <ConfigurationDashboard/>
-                <Chat />
+                <Messages />
+                {/* <ConfigurationDashboard/> */}
             </div>
             
         </div>

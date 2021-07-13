@@ -4,8 +4,6 @@ import { useState, useEffect } from 'react';
 
 export default function Profile_page() {
 
-    const PHOTO_PERSON = "http://placeimg.com/370/250/people";
-
     const {id} = useParams();
     const API_PROFILES = `http://localhost:8000/api/buddies/${id}`;
 
@@ -23,7 +21,7 @@ export default function Profile_page() {
         <div className="profile-page">
             <div className="infoUser">
                 <div className="image-profile-user">
-                    <img src={PHOTO_PERSON} alt="" />
+                    <img src={`http://localhost:8000/images/${descriptionUser.image}`} alt="" />
                     <p className="name-user">{`${descriptionUser.name}, ${descriptionUser.age}`}</p>
                     <p className="city-user">{descriptionUser.cityId}</p>
                 </div>

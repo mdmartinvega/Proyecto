@@ -1,14 +1,10 @@
-import '../styles/Contact.css';import { useHistory, Redirect } from 'react-router-dom';
 import { useForm } from "../hooks/useForm";
-import { useAuthContext } from "../context/AuthContext";
 import { API_MESSAGES } from '../Settings';
 
 export default function LogIn(languagesList, interestsList) {
 
-    const initialFormState = {name:"", username: "", password: ""};
+    const initialFormState = {name:"", username: "", message: ""};
     const [form, handleInputChange] = useForm(initialFormState, languagesList, interestsList);
-    const {signIn, isAuthenticated} = useAuthContext();
-    const history = useHistory();
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -23,14 +19,8 @@ export default function LogIn(languagesList, interestsList) {
         const data = await response.json();
         console.log(data);
         
-        if(response.status >= 200 && response.status < 300) {
-            signIn(data.token, data.user);
-            history.push("/dashboard")
-        } else {
-            alert("Acceso incorrecto, verifique el usuario y la contraseña");
-        }
     };
-    return isAuthenticated ? <Redirect to="/dashboard" /> : (
+    return (
         <div className="login-form">
             <h2>Envía tu mensaje</h2>
             <form onSubmit={handleSubmit}>
@@ -51,7 +41,7 @@ export default function LogIn(languagesList, interestsList) {
                     <textarea onChange={handleInputChange} type="text" id="message" name="message" value={form.message} placeholder="Escriba aquí su texto"
                         cols="54" rows="7" required></textarea>
                 </div>
-                <button type="submit" value="Log in">Enviar</button>
+                <button type="submit" value="sentMessage">Enviar</button>
             </form>
         </div>
     )

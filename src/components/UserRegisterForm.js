@@ -40,7 +40,7 @@ export default function UserRegisterForm({ languagesList, interestsList, cities 
         console.log(dataImage);
     }
 
-    return (
+    return  (
         <div className="register-form">
                 <h2>Únete a nuestra comunidad para encontrar tu buddy</h2>
                 <form onSubmit={handleSubmit}>

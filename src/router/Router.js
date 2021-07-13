@@ -11,6 +11,8 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Dashboard from '../pages/Dashboard';
 import UserRegister from '../pages/UserRegister';
 import Contact from '../pages/Contact';
+import Messages from '../components/Messages';
+import ConfigurationDashboard from '../components/ConfigurationDashboard';
 
 
 export default function Router() {
@@ -28,6 +30,8 @@ export default function Router() {
                         <Route path="/profiles/:id" component={Profiles} />
                         <Route path="/profilePage/:id" component={ProfilePage} />
                         <Route path="/dashboard" component={Dashboard} />
+                        <Route path="/dashboard/messages" component={Messages} />
+                        <Route path="/dashboard/configuration" component={ConfigurationDashboard} />
                         <Route path="/contact" component={Contact} />
                     </Switch>
                 </BrowserRouter>

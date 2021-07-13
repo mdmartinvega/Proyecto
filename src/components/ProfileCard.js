@@ -7,7 +7,7 @@ export default function Profile({profile}) {
     return (
         <div>
             <div className="card">
-                <img src={profile.image} alt="..." />
+                <img src={`http://localhost:8000/images/${profile.image}`} alt="..." />
                 <div className="description-cardProfile">
                     <p className="name">{`${profile.name}, ${profile.age}`}</p>
                     <p className="city">{profile.cityId}</p>
