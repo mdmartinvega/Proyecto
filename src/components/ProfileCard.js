@@ -1,13 +1,17 @@
 import {Link} from 'react-router-dom';
+import { PLACEHOLDER_URL } from '../Settings';
 
 import '../styles/ProfileCard.css';
 
 export default function Profile({profile}) {
 
+    const src = profile.image ? `http://localhost:8000/images/${profile.image}` : PLACEHOLDER_URL;
+
+
     return (
         <div>
             <div className="card">
-                <img src={`http://localhost:8000/images/${profile.image}`} alt="..." />
+                <img src={src} alt="..." />
                 <div className="description-cardProfile">
                     <p className="name">{`${profile.name}, ${profile.age}`}</p>
                     <p className="city">{profile.cityId}</p>

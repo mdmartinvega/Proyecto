@@ -1,6 +1,7 @@
 import '../styles/ProfilePage.css';
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { PLACEHOLDER_URL } from '../Settings';
 
 export default function Profile_page() {
 
@@ -16,12 +17,14 @@ export default function Profile_page() {
         // eslint-disable-next-line
         }, []);
 
+    const src = descriptionUser.image ? `http://localhost:8000/images/${descriptionUser.image}` : PLACEHOLDER_URL;
+
     return (
         
         <div className="profile-page">
             <div className="infoUser">
                 <div className="image-profile-user">
-                    <img src={`http://localhost:8000/images/${descriptionUser.image}`} alt="" />
+                    <img src={src} alt="" />
                     <p className="name-user">{`${descriptionUser.name}, ${descriptionUser.age}`}</p>
                     <p className="city-user">{descriptionUser.cityId}</p>
                 </div>
