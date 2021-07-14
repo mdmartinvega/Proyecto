@@ -28,8 +28,7 @@ export default function AuthContext({children}) {
     const setToken = token => localStorage.setItem("TOKEN_KEY", token);
     const removeToken = () => localStorage.removeItem("TOKEN_KEY");
 
-    // TODO:Crear role admin
-    const isAdmin = () => loginUser?.role === "ROLE_ADMIN";
+    const isBuddy = () => loginUser?.roles.includes("ROLE_BUDDY")  ;
 
     const signIn = (token, user) => {
         /**
@@ -96,7 +95,7 @@ export default function AuthContext({children}) {
     const contextValue = {
         loginUser,
         isAuthenticated,
-        isAdmin,
+        isBuddy,
         getToken,
         signIn,
         signOut,

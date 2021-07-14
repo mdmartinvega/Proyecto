@@ -22,7 +22,7 @@ export default function Dashboard() {
             </aside>
             <div>
                 <Messages />
-                {/* <ConfigurationDashboard/> */}
+                <ConfigurationDashboard/>
             </div>
             
         </div>

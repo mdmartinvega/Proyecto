@@ -21,7 +21,7 @@ export default function Profile_page() {
 
     return (
         
-        <div className="profile-page">
+        <div className="profile-page">  
             <div className="infoUser">
                 <div className="image-profile-user">
                     <img src={src} alt="" />
@@ -48,7 +48,7 @@ export default function Profile_page() {
                 </div>
             </div>
             <div className="link-to-contact">
-                <Link to="/contact" className="btn">Contacta conmigo</Link>
+                <Link to={`/contact/${id}`} className="btn">Contacta conmigo</Link>
             </div>
             
 

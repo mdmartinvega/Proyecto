@@ -3,6 +3,7 @@ import { Link, useHistory, Redirect } from 'react-router-dom';
 import { useForm } from "../hooks/useForm";
 import { useAuthContext } from "../context/AuthContext";
 import { LOGIN_URL } from '../Settings';
+import jwt_decode from "jwt-decode";
 
 export default function LogIn(languagesList, interestsList) {
 
@@ -25,7 +26,7 @@ export default function LogIn(languagesList, interestsList) {
         console.log(data);
         
         if(response.status >= 200 && response.status < 300) {
-            signIn(data.token, data.user);
+            signIn(data.token, jwt_decode(data.token));
             history.push("/dashboard")
         } else {
             alert("Acceso incorrecto, verifique el usuario y la contraseña");
@@ -44,7 +45,7 @@ export default function LogIn(languagesList, interestsList) {
                     <input onChange={handleChange} value={form.password} type="password" name="password" id="PasswordInput" placeholder="***************" required/>
                 </div>
                 {/* TODO: El login debe acceder al dashboard de cada usuario no a través del link sino del backend */}
-                <button type="submit" value="Log in">Accede</button>
+                <button type="submit" value="Accede">Accede</button>
             </form>
             <div>
                 <Link to="/forgetPassword">¿Has olvidado tu contraseña?</Link>

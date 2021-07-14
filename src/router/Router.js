@@ -32,7 +32,7 @@ export default function Router() {
                         <Route path="/dashboard" component={Dashboard} />
                         <Route path="/dashboard/messages" component={Messages} />
                         <Route path="/dashboard/configuration" component={ConfigurationDashboard} />
-                        <Route path="/contact" component={Contact} />
+                        <Route path="/contact/:id" component={Contact} />
                     </Switch>
                 </BrowserRouter>
             <Footer />
