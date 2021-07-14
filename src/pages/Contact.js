@@ -1,15 +1,23 @@
 import { useForm } from "../hooks/useForm";
 import { useParams } from "react-router";
+import { useAuthContext } from "../context/AuthContext";
+import jwt_decode from "jwt-decode";
 
 export default function LogIn(languagesList, interestsList) {
 
     const {id} = useParams();
 
-    const initialFormState = {message: "", id:""};
+    const {getToken} = useAuthContext();
+    let token = getToken();
+    let decodedToken = jwt_decode(token);
+
+    const initialFormState = {message: "", sender: decodedToken.username, receiver: id};
     const [form, handleInputChange] = useForm(initialFormState, languagesList, interestsList);
 
     const handleSubmit = async e => {
         e.preventDefault();
+
+        
         
         const options = {
             method: "POST",
