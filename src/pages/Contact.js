@@ -2,10 +2,12 @@ import { useForm } from "../hooks/useForm";
 import { useParams } from "react-router";
 import { useAuthContext } from "../context/AuthContext";
 import jwt_decode from "jwt-decode";
+import { useHistory } from 'react-router-dom';
 
 export default function LogIn(languagesList, interestsList) {
 
     const {id} = useParams();
+    const history = useHistory();
 
     const {getToken} = useAuthContext();
     let token = getToken();
@@ -28,6 +30,10 @@ export default function LogIn(languagesList, interestsList) {
         const response = await fetch(`http://localhost:8000/api/messages/${id}`, options);
         const data = await response.json();
         console.log(data);
+
+        if(response.status >= 200 && response.status < 501) {
+            history.push("/successful")
+        }
         
     };
     return (
