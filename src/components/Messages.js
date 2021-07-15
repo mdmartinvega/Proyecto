@@ -1,9 +1,11 @@
 import '../styles/Messages.css';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 export default function Messages() {
+    const {id} = useParams();
 
-    const API_MESSAGES = `http://localhost:8000/api/messages`;
+    const API_MESSAGES = `http://localhost:8000/api/messages/${id}`;
 
     const [receivedMessages, setReceivedMessages] = useState({});
 
@@ -17,14 +19,20 @@ export default function Messages() {
     return (
         <div className="message">
             <div className="messages">
-                <header class="msger-header">
-                    <h3>{`Mensaje de: ${receivedMessages.sender}`}</h3>
-                </header>
                 <main class="msger-chat">
-                    {/* TODO: map con el contenido de los mensajes recibidos */}
                     <div class="messages-from">
-                            <div class="msg-info-time">{receivedMessages.createdAt}</div>
-                            <div class="msg-text">{receivedMessages.message}</div>
+                    {/* {
+                    receivedMessages.map(message => {
+                        return (
+                            <div>
+                                <h3>{`Mensaje de: ${message.sender}`}</h3>
+                                <div class="msg-info-time">{message.createdAt}</div>
+                                <div class="msg-text">{message.message}</div>
+                            </div>
+                        )
+                    })
+                } */}
+                           
                     </div>
                 </main>
             </div>

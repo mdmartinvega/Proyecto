@@ -2,15 +2,17 @@ import Messages from '../components/Messages';
 import ConfigurationDashboard from '../components/ConfigurationDashboard';
 import '../styles/Dashboard.css';
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-import { useAuthContext } from "../context/AuthContext";
+import { NavLink, useParams } from 'react-router-dom';
 import { PLACEHOLDER_URL } from '../Settings';
+import { useAuthContext } from "../context/AuthContext";
 
 export default function Dashboard() {
 
-    const API_PROFILES = "http://localhost:8000/api/buddies";
+    const {id} = useParams();
+    const API_PROFILES = `http://localhost:8000/api/buddies/${id}`;
 
     const [profileResults, setProfileResults] = useState([]);
+    
 
     useEffect(() => {
         fetch(API_PROFILES)
@@ -25,7 +27,7 @@ export default function Dashboard() {
     return (
         
             <div>
-                <h3>Bienvenido a tu perfil</h3>
+                <h3>{`Bienvenido a tu perfil${profileResults.id}`}</h3>
                 <div className="dashboard">
                     <aside>
                         <div>

@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 export default function BuddyRegisterForm({ languagesList, interestsList, cities }) {
 
-    const initialFormState = {name: "", lastname: "", email: "", password: "", age: "", yearsLiving: "", image:"", roles: "['ROLE_BUDDY']", bio:""};
+    const initialFormState = {name: "", lastname: "", email: "", password: "", age: "", yearsLiving: "", image:"", roles: "['ROLE_BUDDY', 'ROLE_USER']", bio:""};
     const [form, handleInputChange, handleLangCheckboxChange, langCheckedState, handleIntCheckboxChange, intCheckedState] = useForm(initialFormState, languagesList, interestsList); // Custom Hook
     const [image, setImage] = useState('');
 
