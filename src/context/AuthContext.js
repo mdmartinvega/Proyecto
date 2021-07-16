@@ -28,7 +28,8 @@ export default function AuthContext({children}) {
     const setToken = token => localStorage.setItem("TOKEN_KEY", token);
     const removeToken = () => localStorage.removeItem("TOKEN_KEY");
 
-    const isBuddy = () => loginUser?.roles.includes("ROLE_BUDDY")  ;
+    const isBuddy = () => loginUser?.roles.includes("ROLE_BUDDY" && "ROLE_USER");
+    const isUser = () => loginUser?.roles.includes("ROLE_USER");
 
     const signIn = (token, user) => {
         /**
@@ -96,6 +97,7 @@ export default function AuthContext({children}) {
         loginUser,
         isAuthenticated,
         isBuddy,
+        isUser,
         getToken,
         signIn,
         signOut,

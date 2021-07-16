@@ -19,8 +19,6 @@ export default function LogIn(languagesList, interestsList) {
     const handleSubmit = async e => {
         e.preventDefault();
 
-        
-        
         const options = {
             method: "POST",
             headers: {"Content-type": "application/json"},
@@ -36,6 +34,7 @@ export default function LogIn(languagesList, interestsList) {
         }
         
     };
+    // TODO:Redireccionar a successful page
     return (
         <div className="login-form">
             <h2>Envía tu mensaje</h2>

@@ -2,24 +2,26 @@ import Messages from '../components/Messages';
 import ConfigurationDashboard from '../components/ConfigurationDashboard';
 import '../styles/Dashboard.css';
 import { useState, useEffect } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { PLACEHOLDER_URL } from '../Settings';
 import { useAuthContext } from "../context/AuthContext";
 
 export default function Dashboard() {
 
-    const {id} = useParams();
-    const API_PROFILES = `http://localhost:8000/api/buddies/${id}`;
+    const {getToken} = useAuthContext();
 
     const [profileResults, setProfileResults] = useState([]);
-    
+
+    const headers = {
+        headers: {"Authorization": `Bearer ${getToken()}`}
+    };
 
     useEffect(() => {
-        fetch(API_PROFILES)
+        fetch("http://localhost:8000/api/buddies/me", headers)
         .then(response => response.json())
         .then(data => setProfileResults(data));
-        // eslint-disable-next-line  
-        }, []);
+        // eslint-disable-next-line
+    }, []);
 
     const src = profileResults.image ? `http://localhost:8000/images/${profileResults.image}` : PLACEHOLDER_URL;
 
@@ -27,7 +29,7 @@ export default function Dashboard() {
     return (
         
             <div>
-                <h3>{`Bienvenido a tu perfil${profileResults.id}`}</h3>
+                <h3>Bienvenido a tu perfil {profileResults.name}</h3>
                 <div className="dashboard">
                     <aside>
                         <div>
