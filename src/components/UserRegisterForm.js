@@ -5,10 +5,10 @@ import { useState } from 'react';
 
 export default function UserRegisterForm({ languagesList, interestsList, cities }) {
 
-    const initialFormState = {name: "", lastname: "", email: "", password: "", age: "", image:"", yearsLiving: "", cityUser: "", roles: "['ROLE_USER']", bio:""};
+    const initialFormState = {name: "", lastname: "",cityId:"", email: "", password: "", age: "", image:"", yearsLiving: "", roles: "['ROLE_USER']", bio:""};
     const [form, handleInputChange, handleLangCheckboxChange, langCheckedState, handleIntCheckboxChange, intCheckedState] = useForm(initialFormState, languagesList, interestsList); // Custom Hook
     const [image, setImage] = useState('');
-    
+    console.log(form);
     //Manejo de la imagen
     const handleImageUploaded = e => setImage(e.target.files[0]);
 
@@ -110,7 +110,7 @@ export default function UserRegisterForm({ languagesList, interestsList, cities 
                 </div>
                 {/* TODO: Averiguar como insertar el campo vuelva a introducir contraseña y sus atributos */}
                 {/* TODO: Agregar link que lleve a la página de login */}
-                <button onSubmit = {handleSubmit} type="submit" value="Log in">Accede</button>
+                <button onSubmit = {handleSubmit} type="submit" value="Accede">Accede</button>
                 </form>
                 <div>
                 <Link to="/login">¿Ya tienes una cuenta con nosotros?</Link>

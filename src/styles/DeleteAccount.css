@@ -1,0 +1,14 @@
+.delete-account {
+    width: 100px;
+    margin: auto;
+    margin-right: 100px;
+
+}
+.delete-account button {
+    width: 150px;
+    background-color: red;
+    padding: 20px;
+    font-size: 0.9em;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}

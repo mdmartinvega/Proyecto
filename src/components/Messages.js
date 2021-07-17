@@ -22,8 +22,11 @@ export default function Messages() {
     let totalMessages = receivedMessages?.total;
     let contentMessages = receivedMessages?.messages;
 
+    
+
     return (
         <div className="messages-area">
+            <h2>Tus mensajes</h2>
             <h3>Tienes un total de {totalMessages} mensajes</h3>
             <div className="message">
                         <div class="messages-from">

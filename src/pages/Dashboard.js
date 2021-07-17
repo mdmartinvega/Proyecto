@@ -2,15 +2,15 @@ import Messages from '../components/Messages';
 import ConfigurationDashboard from '../components/ConfigurationDashboard';
 import '../styles/Dashboard.css';
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
 import { PLACEHOLDER_URL } from '../Settings';
 import { useAuthContext } from "../context/AuthContext";
+import DeleteAccount from '../components/DeleteAccount';
 
 export default function Dashboard() {
 
     const {getToken} = useAuthContext();
 
-    const [profileResults, setProfileResults] = useState([]);
+    const [profileResults, setProfileResults] = useState();
 
     const headers = {
         headers: {"Authorization": `Bearer ${getToken()}`}
@@ -24,31 +24,49 @@ export default function Dashboard() {
     }, []);
 
 
-    const src = profileResults.image ? `http://localhost:8000/images/${profileResults.image}` : PLACEHOLDER_URL;
+    const src = profileResults?.image ? `http://localhost:8000/images/${profileResults?.image}` : PLACEHOLDER_URL;
 
     
     return (
         
             <div className="main-page">
-                <h2>Bienvenido a tu perfil {profileResults.name} !</h2>
-                <div className="img-dashboard">
-                    <img src={src} alt="..." />
+                <h2>Bienvenido a tu perfil {profileResults?.name} !</h2>
+                <div className="profile">
+                <h2>Sobre tí</h2>
+                    <div className="img-dashboard">
+                        <img src={src} alt="..." />
+                    </div>
+                    <div className="About-you">
+                        <p>{profileResults?.name} {profileResults?.lastName}</p>
+                        <p>{profileResults?.cityId}</p>
+                        <p>{profileResults?.age} años</p>
+                        <p>Acerca de tí: {profileResults?.bio}</p>
+                        <div className="languages">
+                            {profileResults?.languages?.map(language => {
+                                return <div> {`${language?.name}`} </div>
+                            })
+                            }
+                        </div>
+                        <div className="interests">
+                            {profileResults?.interests?.map(interest => {
+                                return <div> {`${interest?.tag}`} </div>
+                            })
+                            }
+                        </div>
+                    </div>
                 </div>
                 <div className="dashboard">
                         <div class="list">
                             
                         </div>
                     <div>
-                    <div>
-                        <NavLink to="dashboard/messages">Mensajes</NavLink>
-                    </div>
                         <Messages />
-                        <div>
-                        <NavLink to="dashboard/configuration">Configuración</NavLink>
-                        </div>
-
-                        <ConfigurationDashboard/>
+                        {profileResults !== undefined ? <ConfigurationDashboard user={profileResults} /> : <></>}
                     </div>
+                    <div>
+                        <DeleteAccount />
+                    </div>
+                    
                 
                 </div>
             </div>
