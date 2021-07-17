@@ -42,7 +42,7 @@ export default function Dashboard() {
                     <div>
                         <NavLink to="dashboard/messages">Mensajes</NavLink>
                     </div>
-                        <Messages id = {profileResults.id}/>
+                        <Messages />
                         <div>
                         <NavLink to="dashboard/configuration">Configuración</NavLink>
                         </div>
