@@ -1,13 +1,12 @@
 import '../styles/Messages.css';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 
-export default function Messages() {
-    const {id} = useParams();
+export default function Messages({id}) {
 
+    console.log(id);
+    console.log(id);
+    const [receivedMessages, setReceivedMessages] = useState([]);
     const API_MESSAGES = `http://localhost:8000/api/messages/${id}`;
-
-    const [receivedMessages, setReceivedMessages] = useState({});
 
     useEffect(() => {
         fetch(API_MESSAGES)
@@ -16,26 +15,27 @@ export default function Messages() {
         // eslint-disable-next-line
         }, []);
 
+    let totalMessages = receivedMessages?.total;
+    let contentMessages = receivedMessages?.messages;
+
     return (
         <div className="message">
-            <div className="messages">
-                <main class="msger-chat">
+            <p>Tienes un total de {totalMessages} mensajes</p>
                     <div class="messages-from">
-                    {/* {
-                    receivedMessages.map(message => {
+                    {
+                    contentMessages?.map(message => {
                         return (
                             <div>
-                                <h3>{`Mensaje de: ${message.sender}`}</h3>
-                                <div class="msg-info-time">{message.createdAt}</div>
-                                <div class="msg-text">{message.message}</div>
+                                <h3>{`Mensaje de: ${message?.senderName}`}</h3>
+                                <div class="msg-info-time">{message?.createdAt}</div>
+                                <div class="msg-text">{message?.message}</div>
                             </div>
                         )
                     })
-                } */}
-                           
+                }
+                          
                     </div>
-                </main>
-            </div>
+
             <form class="msger-inputarea">
                 <input type="text" class="msger-input" placeholder="Escribe tu mensaje..."/>
                 <button type="submit" class="msger-send-btn">Send</button>

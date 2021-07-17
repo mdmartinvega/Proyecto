@@ -29,7 +29,7 @@ export default function LogIn(languagesList, interestsList) {
         const data = await response.json();
         console.log(data);
 
-        if(response.status >= 200 && response.status < 501) {
+        if(response.status >= 200 && response.status < 300) {
             history.push("/successful")
         }
         

@@ -2,7 +2,6 @@ import '../styles/Input.css';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
 import { API_CITIES } from '../Settings';
 
 

@@ -1,15 +1,12 @@
-.dashboard {
-    display: flex;
-    margin: 20px auto;
+.main-page {
     background-color: white;
-    padding: 20px;
+    padding-top: 30px;
 }
-
-aside {
-    width: 20%;
-
+.main-page h2 {
+    margin: auto;
+    width: 30%;
 }
-
-.main-dashboard {
-    width: 80%;
-} 
+.img-dashboard img {
+    width: 250px;
+    margin: auto;
+}

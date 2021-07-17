@@ -5,7 +5,7 @@ import { useAuthContext } from "../context/AuthContext";
 export default function NavBar() {
 
     const {signOut, isAuthenticated} = useAuthContext();
-    const logo = 'images/images/logo.png';
+    const logo = './images/logo.png';
 
     return isAuthenticated ? (
         <div className="navbar">
