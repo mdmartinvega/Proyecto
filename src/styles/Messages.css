@@ -15,14 +15,31 @@
 
 .message {
     padding: 20px;
-    border: 1px solid black;
-    height: 150px; 
-    overflow: scroll;
+    overflow-y: scroll;
+    height: 300px;
+}
+.one-message {
+    padding: 10px;
 
 }
 
+.msg-text {
+    padding: 20px;
+}
+
+.msg-text p{
+    width: 200px;
+}
 .msger-inputarea {
     border: 1px solid black; 
     padding: 20px;
     border-top: none;
+}
+
+.one-message:nth-child(odd) {
+    background-color: rgb(196, 245, 248);
+}
+
+.one-message:nth-child(even) {
+    background-color: rgb(243, 183, 250);
 }

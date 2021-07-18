@@ -23,7 +23,6 @@ export default function LogIn(languagesList, interestsList) {
 
         const response = await fetch(LOGIN_URL, options);
         const data = await response.json();
-        console.log(data);
         
         if(response.status >= 200 && response.status < 300) {
             signIn(data.token, jwt_decode(data.token));

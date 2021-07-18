@@ -64,7 +64,7 @@ export default function Dashboard() {
                         {profileResults !== undefined ? <ConfigurationDashboard user={profileResults} /> : <></>}
                     </div>
                     <div>
-                        <DeleteAccount />
+                        <DeleteAccount user={profileResults}/>
                     </div>
                     
                 

@@ -1,25 +1,39 @@
 import '../styles/DeleteAccount.css';
+import { useHistory } from 'react-router-dom';
+import { useAuthContext } from "../context/AuthContext";
+
+
 
 export default function DeleteAccount({user}) {
 
-    const handleSubmit = async e => {
+    const history = useHistory();
+    const {getToken} = useAuthContext();
+
+    async function handleSubmit (e) {
         e.preventDefault();
+
 
         const options = {
             method: "DELETE",
-            headers: {"Content-type": "application/json"},
-            body: JSON.stringify(user)
+            headers: {"Authorization": `Bearer ${getToken()}`},
+
         }
 
-        const response = await fetch(`http://localhost:8000/api/messages/${user.id}`, options);
+        const response = await fetch(`http://localhost:8000/api/buddies/delete/${user.id}`, options);
         const data = await response.json();
-        console.log(data);
+
+        if(response.status >= 200 && response.status < 300) {
+            alert("Tu cuenta se ha eliminado correctamente");
+            history.push("/")
+        } else {
+            alert("Oooops! Algo fue mal");
+        }
    
     };
     
     return (
-        <div className="delete-account">
-            <button onSubmit = {handleSubmit} type="submit" value="Eliminar cuenta">Eliminar cuenta</button>
-        </div>
+        <form onSubmit={handleSubmit} className="delete-account">
+            <input type="submit" value="Eliminar cuenta" />
+        </form>
     )
 }
