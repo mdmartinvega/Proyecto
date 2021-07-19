@@ -9,7 +9,8 @@
 
 /* Cuerpo de la página */
 .router {
-    background: radial-gradient(circle at 120.71% 50%, #fce2c1 0, #f8e4c1 3.33%, #f2e5c0 6.67%, #ede7c1 10%, #e7e9c2 13.33%, #e2eac4 16.67%, #dcecc7 20%, #d6edca 23.33%, #d0eece 26.67%, #cbefd3 30%, #c6f0d7 33.33%, #c1f0dc 36.67%, #bdf1e1 40%, #b9f1e7 43.33%, #b7f1ec 46.67%, #b5f1f1 50%, #b4f1f6 53.33%, #b5f0fa 56.67%, #b6efff 60%, #b8eeff 63.33%, #bcedff 66.67%, #c0ecff 70%, #c5ebff 73.33%, #cbe9ff 76.67%, #d1e8ff 80%, #d8e6ff 83.33%, #dee4ff 86.67%, #e5e2ff 90%, #ebe1ff 93.33%, #f1dfff 96.67%, #f7deff 100%);
+    /* background: radial-gradient(circle at 120.71% 50%, #fce2c1 0, #f8e4c1 3.33%, #f2e5c0 6.67%, #ede7c1 10%, #e7e9c2 13.33%, #e2eac4 16.67%, #dcecc7 20%, #d6edca 23.33%, #d0eece 26.67%, #cbefd3 30%, #c6f0d7 33.33%, #c1f0dc 36.67%, #bdf1e1 40%, #b9f1e7 43.33%, #b7f1ec 46.67%, #b5f1f1 50%, #b4f1f6 53.33%, #b5f0fa 56.67%, #b6efff 60%, #b8eeff 63.33%, #bcedff 66.67%, #c0ecff 70%, #c5ebff 73.33%, #cbe9ff 76.67%, #d1e8ff 80%, #d8e6ff 83.33%, #dee4ff 86.67%, #e5e2ff 90%, #ebe1ff 93.33%, #f1dfff 96.67%, #f7deff 100%); */
+    background-color: burlywood;
 }
 
 /* -------------------------Index------------------------- */

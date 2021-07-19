@@ -29,12 +29,12 @@
 .inputs-form input:focus {
   /* box-shadow: 0px 0px 10px rebeccapurple;
   outline: none; */
-  background-color: rgb(235, 207, 240);
+  background-color: rgb(185, 180, 236);
 }
 
 .login-form button {
     width: 100%;
-    background-color: rebeccapurple;
+    background-color: #214778;
     padding: 7px;
     color: #fff;
     margin-bottom: 15px;
@@ -44,7 +44,7 @@
 
 .login-form a {
     text-decoration: none;
-    color: rgb(156, 67, 245);
+    color: #395579;
     font-weight: bold;
     padding-right: 25px;
   }

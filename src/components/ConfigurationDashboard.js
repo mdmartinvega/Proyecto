@@ -3,17 +3,15 @@ import '../styles/ConfigurationDashboard.css';
 import { useHistory } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
 
-
-
-export default function ConfigurationDashboard({user}) {
+export default function ConfigurationDashboard({user, reload}) {
 
     const [interestsList] = useState([]);    
     const [languagesList] = useState([]);
-
     
     const initialFormState = {name: user?.name, lastName: user?.lastName, email: user?.email, password: user?.password, age: user?.age, bio: user?.bio};
     const [form, handleInputChange] = useForm(initialFormState, languagesList, interestsList); // Custom Hook
     const history = useHistory();
+    console.log(form);
 
 
     async function handleSubmit(e){
@@ -25,14 +23,14 @@ export default function ConfigurationDashboard({user}) {
             body: JSON.stringify(form)
         }
 
-        const response = await fetch(`http://localhost:8000/api/buddies/${user.id}`, options);
+        const response = await fetch(`http://localhost:8000/api/buddies/updatedUser/${user.id}`, options);
         const data = await response.json();
         console.log(data);
 
-        // TODO: Verificar porque sale del login
         if(response.status >= 200 && response.status < 300) {
             alert("Tus datos se han modificado correctamente");
-            history.push("/dashboard")
+            history.push("/dashboard");
+            reload(!reload);
         } 
     }
 
@@ -41,7 +39,7 @@ export default function ConfigurationDashboard({user}) {
         <div className="main-dashboard">
             <div className="register-form">
                 <h2>Modifica tu perfil</h2>
-                <form >
+                <form onSubmit={handleSubmit}>
                     <div className="inputs-form">
                         <label htmlFor="name">Nombre</label>
                         <input onChange={handleInputChange} value={form.name} name="name" type="text" id="nameInput" placeholder="Nombre"/>
@@ -68,13 +66,13 @@ export default function ConfigurationDashboard({user}) {
                         <label htmlFor="PasswordInput">Contraseña</label>
                         <input onChange={handleInputChange} value={form.password} name="password" type="password" id="PasswordInput" placeholder="***************"/>
                     </div>
-                    <div className="inputs-form">
+                    {/* <div className="inputs-form">
                         <label htmlFor="PasswordInput">Vuelve a introducir tu contraseña</label>
                         <input onChange={handleInputChange} value={form.passwordRepeat} name="password" type="password" id="PasswordInput" placeholder="***************"/>
-                    </div>
+                    </div> */}
                     {/* TODO: Averiguar como insertar el campo vuelva a introducir contraseña y sus atributos */}
                     {/* TODO: Agregar link que lleve a la página de login */}
-                    <button onSubmit={handleSubmit} type="submit" value="Enviar">Enviar</button>
+                    <input type="submit" value="Enviar"/>
                 </form>
             </div>
         </div>

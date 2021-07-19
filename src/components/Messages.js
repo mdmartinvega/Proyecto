@@ -52,15 +52,14 @@ export default function Messages() {
                                             <h4>{`Mensaje de: ${message?.senderName}`}</h4>
                                             <div class="msg-info-time">{message?.createdAt}</div>
                                             <div class="msg-text"><p>{message?.message}</p></div>
-                                            <div>
+                                            <div className="links">
                                             <Link to={`/contact/${message?.senderId}`}>
                                                 Responder a {message?.senderName}
                                             </Link>
-                                            </div>
-                                            <div>
-                                                <Link to={`/profilePage/${message?.senderId}`}>
-                                                    Ver ferfil de {message?.senderName}
-                                                </Link>
+                        
+                                            <Link to={`/profilePage/${message?.senderId}`}>
+                                                Ver ferfil de {message?.senderName}
+                                            </Link>
                                             </div>
                                             
                                         </div>

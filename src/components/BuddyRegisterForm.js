@@ -1,13 +1,17 @@
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
 import { API_REGISTER_BUDDY } from '../Settings';
 import { useState } from 'react';
 
 export default function BuddyRegisterForm({ languagesList, interestsList, cities }) {
 
-    const initialFormState = {name: "", lastname: "", email: "", password: "", age: "", yearsLiving: "", image:"", roles: "['ROLE_BUDDY', 'ROLE_USER']", bio:""};
+    const history = useHistory();
+
+    const initialFormState = {name: "", lastname: "",cityId:"", email: "", password: "", age: "", image:"", yearsLiving: "", roles: "['ROLE_BUDDY']", bio:""};
     const [form, handleInputChange, handleLangCheckboxChange, langCheckedState, handleIntCheckboxChange, intCheckedState] = useForm(initialFormState, languagesList, interestsList); // Custom Hook
     const [image, setImage] = useState('');
+    console.log(form);
+    
 
      //Manejo de la imagen
      const handleImageUploaded = e => setImage(e.target.files[0]);
@@ -38,22 +42,17 @@ export default function BuddyRegisterForm({ languagesList, interestsList, cities
         const responseImage = await fetch(`http://localhost:8000/api/buddies/imageupdated/${data.id}`, optionsImg);
         const dataImage = await responseImage;
         console.log(dataImage);
+        
+        if(response.status >= 200 && response.status < 300) {
+            alert("Tu cuenta se ha creado correctamente, accede con ella");
+            history.push("/login");
+        } 
     }
 
     return (
         <div className="register-form">
                 <h2>Únete como buddy a nuestra comunidad</h2>
                 <form onSubmit={handleSubmit}>
-                {/* <div className="choose-option">
-                        <div>
-                            <input onChange={handleRadioChange} type="radio" name="buddySearch" value={!roles} id="user"/>
-                            <label htmlFor="user">Busco un buddy</label>
-                        </div>                                     
-                        <div>
-                            <input onChange={handleRadioChange} type="radio" name="buddySearch" value={roles} id="buddy"/>
-                            <label htmlFor="buddy">Quiero ser un buddy</label>
-                        </div>
-                </div> */}
                 <div className="inputs-form">
                     <label htmlFor="name">Nombre</label>
                     <input onChange={handleInputChange} value={form.name} name="name" type="text" id="nameInput" placeholder="Nombre" required/>
@@ -119,13 +118,13 @@ export default function BuddyRegisterForm({ languagesList, interestsList, cities
                     <label htmlFor="PasswordInput">Contraseña</label>
                     <input onChange={handleInputChange} value={form.password} name="password" type="password" id="PasswordInput" placeholder="***************" required/>
                 </div>
-                <div className="inputs-form">
+                {/* <div className="inputs-form">
                     <label htmlFor="PasswordInput">Vuelve a introducir tu contraseña</label>
                     <input onChange={handleInputChange} value={form.passwordRepeat} name="password" type="password" id="PasswordInput" placeholder="***************" required/>
-                </div>
+                </div> */}
                 {/* TODO: Averiguar como insertar el campo vuelva a introducir contraseña y sus atributos */}
                 {/* TODO: Agregar link que lleve a la página de login */}
-                <button onSubmit = {handleSubmit} type="submit" value="Log in">Accede</button>
+                <input type="submit" value="Enviar"/>
                 </form>
                 <div>
                 <Link to="/login">¿Ya tienes una cuenta con nosotros?</Link>

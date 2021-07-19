@@ -2,13 +2,14 @@
     width: 85%;
     border-radius: 30px;
     margin: 50px auto;
-    background: linear-gradient(to bottom, rgba(83, 83, 83, 0.3), rgb(251, 246, 251)), url(../images/luggage-1149289_1920.jpg);
+    /* background: linear-gradient(to bottom, rgba(83, 83, 83, 0.3), rgb(251, 246, 251)), url(../images/luggage-1149289_1920.jpg); */
     background-position: right;
     background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 70vh;
+    padding: 50px;
 }
 
 .infoUser {
@@ -29,14 +30,14 @@
 .image-profile-user img {
     width: 350px;
     height: 250px;
-    border: 3px solid rebeccapurple;
+    border: 3px solid #214778;
 }
 
 .image-profile-user p {
     font-size: 1.5em;
     font-weight: bold;
-    font-style: italic;
-    color: rgb(39, 39, 39);
+    color: rgb(58, 57, 57);
+    padding-top: 20px;
     
 }
 .info-profile-user {
@@ -50,11 +51,11 @@
 
 .link-to-contact a {
     text-decoration: none;
-    border: 1px solid rebeccapurple;
+    border: 1px solid #214778;
     border-radius: 30px;
     padding: 15px;
     color: white;
-    background-color: rebeccapurple;
+    background-color: #214778;
 }
 
 .description-cardProfile-user .interests {

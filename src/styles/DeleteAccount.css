@@ -4,7 +4,7 @@
     margin-right: 100px;
 
 }
-.delete-account button {
+.delete-account input {
     width: 150px;
     background-color: red;
     padding: 20px;

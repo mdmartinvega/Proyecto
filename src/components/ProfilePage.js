@@ -1,11 +1,15 @@
 import '../styles/ProfilePage.css';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, Redirect } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { PLACEHOLDER_URL } from '../Settings';
+import { useAuthContext } from "../context/AuthContext";
+
 
 export default function Profile_page() {
 
     const {id} = useParams();
+    const {isAuthenticated} = useAuthContext();
+
     const API_PROFILES = `http://localhost:8000/api/buddies/${id}`;
 
     const [descriptionUser, setDescriptionUser] = useState({});
@@ -19,7 +23,7 @@ export default function Profile_page() {
 
     const src = descriptionUser.image ? `http://localhost:8000/images/${descriptionUser.image}` : PLACEHOLDER_URL;
 
-    return (
+    return isAuthenticated ? (
         
         <div className="profile-page">  
             <div className="infoUser">
@@ -53,5 +57,5 @@ export default function Profile_page() {
             
 
         </div>
-    )
+    ) : <Redirect to="/login" />
 }

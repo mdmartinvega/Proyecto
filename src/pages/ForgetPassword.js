@@ -13,10 +13,10 @@ export default function ForgetPassword() {
                     <label htmlFor="PasswordInput">Contraseña</label>
                     <input type="password" name="password" id="PasswordInput" placeholder="***************" required/>
                 </div>
-                <div className="inputs-form">
+                {/* <div className="inputs-form">
                     <label htmlFor="PasswordInput">Vuelve a introducir tu contraseña</label>
                     <input type="password" name="password" id="PasswordInput" placeholder="***************" required/>
-                </div>
+                </div> */}
                 <button type="submit" value="Login">Accede</button>
             </form>
             <div>

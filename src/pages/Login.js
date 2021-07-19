@@ -48,7 +48,7 @@ export default function LogIn(languagesList, interestsList) {
             </form>
             <div>
                 <Link to="/forgetPassword">¿Has olvidado tu contraseña?</Link>
-                <Link to="/register">Regístrate para acceder</Link>
+                <Link to="/about">Regístrate para acceder</Link>
             </div>
         </div>
     )

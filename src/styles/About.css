@@ -6,7 +6,7 @@
 
 .about-us {
     width: 85%;
-    background: linear-gradient(to bottom, rgba(255,255, 255, 0), rgba(255, 255, 255, 1)), url(../images/index_photo.jpg);
+    /* background: linear-gradient(to bottom, rgba(255,255, 255, 0), rgba(255, 255, 255, 1)), url(../images/index_photo.jpg); */
     background-position: center bottom;
     background-size: cover;
     border-radius: 30px;
@@ -27,7 +27,7 @@
 }
 
 .abouts a{
-    background-color: #620062;
+    background-color: #214778;
     border-radius: 30px;
     padding: 10px;
     color: white;

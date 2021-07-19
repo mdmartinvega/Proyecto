@@ -2,12 +2,14 @@ import { useForm } from "../hooks/useForm";
 import { useParams } from "react-router";
 import { useAuthContext } from "../context/AuthContext";
 import jwt_decode from "jwt-decode";
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect  } from 'react-router-dom';
 
-export default function LogIn(languagesList, interestsList) {
+export default function Contact(languagesList, interestsList) {
 
     const {id} = useParams();
     const history = useHistory();
+    const {isAuthenticated} = useAuthContext();
+
 
     const {getToken} = useAuthContext();
     let token = getToken();
@@ -36,7 +38,7 @@ export default function LogIn(languagesList, interestsList) {
     };
 
     // TODO:Redireccionar a successful page
-    return (
+    return isAuthenticated ? (
         <div className="login-form">
             <h2>Envía tu mensaje</h2>
             <form onSubmit={handleSubmit}>
@@ -52,5 +54,5 @@ export default function LogIn(languagesList, interestsList) {
                 <button type="submit" value="sentMessage">Enviar</button>
             </form>
         </div>
-    )
+    ) : <Redirect to="/login" />
 }
