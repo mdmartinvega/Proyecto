@@ -2,12 +2,12 @@ import '../styles/DeleteAccount.css';
 import { useHistory } from 'react-router-dom';
 import { useAuthContext } from "../context/AuthContext";
 
-
-
 export default function DeleteAccount({user}) {
 
     const history = useHistory();
     const {getToken} = useAuthContext();
+    const {signOut} = useAuthContext();
+
 
     async function handleSubmit (e) {
         e.preventDefault();
@@ -24,7 +24,8 @@ export default function DeleteAccount({user}) {
 
         if(response.status >= 200 && response.status < 300) {
             alert("Tu cuenta se ha eliminado correctamente");
-            history.push("/")
+            history.push("/");
+            signOut();
         } else {
             alert("Oooops! Algo fue mal");
         }
