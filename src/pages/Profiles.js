@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/Profiles.css';
 
+
 export default function Profiles() {
     // TODO: Hacer otro endpoint segun rol
     const {id} = useParams();
@@ -24,7 +25,7 @@ export default function Profiles() {
     let city = apiResults?.city;
     let total = apiResults.total;
 
-    return (
+    return  (
         <div className="profiles-page">
             <h1>Encuentra a tu buddy en {city?.name}</h1>
             <Filter />
@@ -34,11 +35,11 @@ export default function Profiles() {
                     profileCards?.map(profile => {
                         return (
                             <ProfileCard profile={profile} key={profile.id} />
-                        )
+                        ) 
                     })
                 }
             
             </div>
         </div>
-    )
+    ) 
 }
