@@ -37,19 +37,16 @@ export default function Contact(languagesList, interestsList) {
         
     };
 
-    // TODO:Redireccionar a successful page
+    // TODO:Estilar successful page
     return isAuthenticated ? (
         <div className="login-form">
             <h2>Envía tu mensaje</h2>
             <form onSubmit={handleSubmit}>
-            <div className="inputs-form">
-                <label htmlFor="message">Escribe tu mensaje</label>
-                <br />
-                <small>Sé explícito, cuanta más información proporciones más posibilidades habrá de ayudar y ser ayudado.</small>
-                <br />
-                {/* TODO: deshabilitar el tamaño para usuarios  */}
-                <textarea onChange={handleInputChange} type="text" id="message" name="message" value={form.message} placeholder="Escriba aquí su texto"
-                    cols="54" rows="7" required></textarea>
+                <div className="inputs-form">
+                    <label htmlFor="message">Escribe tu mensaje</label>
+                    <small>Sé explícito, cuanta más información proporciones más posibilidades habrá de ayudar y ser ayudado.</small>
+                    <textarea onChange={handleInputChange} type="text" id="message" name="message" value={form.message} placeholder="Escriba aquí su texto"
+                        cols="54" rows="7" required></textarea>
                 </div>
                 <button type="submit" value="sentMessage">Enviar</button>
             </form>

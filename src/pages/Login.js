@@ -32,23 +32,24 @@ export default function LogIn(languagesList, interestsList) {
         }
     };
     return isAuthenticated ? <Redirect to="/dashboard" /> : (
-        <div className="login-form">
-            <h2>Accede a tu cuenta</h2>
-            <form onSubmit={handleSubmit}>
-                <div className="inputs-form">
-                    <label htmlFor="EmailInput">Email</label>
-                    <input onChange={handleChange} value={form.username} type="email" name="username" id="EmailInput" placeholder="tuemail@tuemail.com" required/>
+        <div className="login-page">
+            <div className="login-form">
+                <h2>Accede a tu cuenta</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className="inputs-form">
+                        <label htmlFor="EmailInput">Email</label>
+                        <input onChange={handleChange} value={form.username} type="email" name="username" id="EmailInput" placeholder="tuemail@tuemail.com" required/>
+                    </div>
+                    <div className="inputs-form">
+                        <label htmlFor="PasswordInput">Contraseña</label>
+                        <input onChange={handleChange} value={form.password} type="password" name="password" id="PasswordInput" placeholder="***************" required/>
+                    </div>
+                    <button type="submit" value="Accede">Accede</button>
+                </form>
+                <div>
+                    <Link to="/forgetPassword">¿Has olvidado tu contraseña?</Link>
+                    <Link to="/about">Regístrate para acceder</Link>
                 </div>
-                <div className="inputs-form">
-                    <label htmlFor="PasswordInput">Contraseña</label>
-                    <input onChange={handleChange} value={form.password} type="password" name="password" id="PasswordInput" placeholder="***************" required/>
-                </div>
-                {/* TODO: El login debe acceder al dashboard de cada usuario no a través del link sino del backend */}
-                <button type="submit" value="Accede">Accede</button>
-            </form>
-            <div>
-                <Link to="/forgetPassword">¿Has olvidado tu contraseña?</Link>
-                <Link to="/about">Regístrate para acceder</Link>
             </div>
         </div>
     )

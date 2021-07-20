@@ -44,30 +44,28 @@ export default function Messages() {
                 <h2>Tus mensajes recibidos</h2>
                 <h3>Tienes un total de {totalMessages} mensajes</h3>
                 <div className="message">
-                            <div class="messages-from">
-                                {
-                                contentMessages?.map(message => {
-                                    return (
-                                        <div className="one-message">
-                                            <h4>{`Mensaje de: ${message?.senderName}`}</h4>
-                                            <div class="msg-info-time">{message?.createdAt}</div>
-                                            <div class="msg-text"><p>{message?.message}</p></div>
-                                            <div className="links">
-                                            <Link to={`/contact/${message?.senderId}`}>
-                                                Responder a {message?.senderName}
-                                            </Link>
-                        
-                                            <Link to={`/profilePage/${message?.senderId}`}>
-                                                Ver ferfil de {message?.senderName}
-                                            </Link>
-                                            </div>
-                                            
-                                        </div>
-                                    ) 
-                                })
-                                }
-            
-                            </div>
+                        <div class="messages-from">
+                            {
+                            contentMessages?.map(message => {
+                                return (
+                                    <div className="one-message">
+                                        <h4>{`Mensaje de: ${message?.senderName}`}</h4>
+                                        <div class="msg-info-time">{message?.createdAt}</div>
+                                        <div class="msg-text"><p>{message?.message}</p></div>
+                                        <div className="links">
+                                        <Link to={`/contact/${message?.senderId}`}>
+                                            Responder a {message?.senderName}
+                                        </Link>
+                    
+                                        <Link to={`/profilePage/${message?.senderId}`}>
+                                            Ver ferfil de {message?.senderName}
+                                        </Link>
+                                        </div>                       
+                                    </div>
+                                ) 
+                            })
+                            }
+                        </div>
                 </div>
             
             {/* </div>

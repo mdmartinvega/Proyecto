@@ -51,8 +51,8 @@ export default function BuddyRegisterForm({ languagesList, interestsList, cities
 
     return (
         <div className="register-form">
-                <h2>Únete como buddy a nuestra comunidad</h2>
-                <form onSubmit={handleSubmit}>
+            <h2>Únete como buddy a nuestra comunidad</h2>
+            <form onSubmit={handleSubmit}>
                 <div className="inputs-form">
                     <label htmlFor="name">Nombre</label>
                     <input onChange={handleInputChange} value={form.name} name="name" type="text" id="nameInput" placeholder="Nombre" required/>
@@ -62,7 +62,7 @@ export default function BuddyRegisterForm({ languagesList, interestsList, cities
                     <input onChange={handleInputChange} value={form.lastName} name="lastName" type="text" id="lastNameInput" placeholder="Apellidos" required/>
                 </div>
                 <div className="inputs-form">
-                <label htmlFor="age">¿Cuántos años tienes?</label>
+                    <label htmlFor="age">¿Cuántos años tienes?</label>
                     <input onChange={handleInputChange} type="number" id="age" name="age" value={form.age} min="0" max="120" placeholder="Escoge"/>
                 </div>
                 <div className="inputs-form">
@@ -79,24 +79,23 @@ export default function BuddyRegisterForm({ languagesList, interestsList, cities
                 <fieldset>
                     <legend>¿Qué idiomas hablas?</legend>
                         <div className="languages">
-                        {languagesList.map((language, index) => {
+                            {languagesList.map((language, index) => {
                             return (<div>
                                 <input onChange={() => handleLangCheckboxChange(index)} checked={langCheckedState[index]} type="checkbox" name={language.name} id={language.name} value={language.id} />
                                 <label htmlFor={language.name} >{language.name}</label>
-                            </div>)
-                        })}
+                                </div>)
+                            })}
                         </div>
                 </fieldset>
-
                 <fieldset>
                     <legend>¿Qué puedes ofrecer?</legend>          
                         <div className="interests">
-                        {interestsList.map((interest, index) => {
+                            {interestsList.map((interest, index) => {
                             return ( <div>
                                 <input  onChange={() => handleIntCheckboxChange(index)} checked={intCheckedState[index]} type="checkbox" name={interest.tag} id={interest.tag} value={interest.id}/>
                                 <label htmlFor={interest.tag}>{interest.tag}</label>
-                            </div>)
-                        })}                       
+                                </div>)
+                            })}                       
                         </div>
                 </fieldset>
                 <div class="inputs-form">
@@ -109,7 +108,6 @@ export default function BuddyRegisterForm({ languagesList, interestsList, cities
                     <label htmlFor="image">Queremos saber más, sube una foto que te identifique</label>
                     <input onChange={handleImageUploaded} name="image" type="file" id="image" accept="png jpg jpeg" />
                 </div>
-
                 <div className="inputs-form">
                     <label htmlFor="EmailInput">Email</label>
                     <input onChange={handleInputChange} value={form.email} name="email" type="email" id="EmailInput" placeholder="tuemail@tuemail.com" required/>
@@ -118,17 +116,11 @@ export default function BuddyRegisterForm({ languagesList, interestsList, cities
                     <label htmlFor="PasswordInput">Contraseña</label>
                     <input onChange={handleInputChange} value={form.password} name="password" type="password" id="PasswordInput" placeholder="***************" required/>
                 </div>
-                {/* <div className="inputs-form">
-                    <label htmlFor="PasswordInput">Vuelve a introducir tu contraseña</label>
-                    <input onChange={handleInputChange} value={form.passwordRepeat} name="password" type="password" id="PasswordInput" placeholder="***************" required/>
-                </div> */}
-                {/* TODO: Averiguar como insertar el campo vuelva a introducir contraseña y sus atributos */}
-                {/* TODO: Agregar link que lleve a la página de login */}
                 <input type="submit" value="Enviar"/>
-                </form>
-                <div>
+            </form>
+            <div>
                 <Link to="/login">¿Ya tienes una cuenta con nosotros?</Link>
-                </div>
+            </div>
         </div>
     )
 }

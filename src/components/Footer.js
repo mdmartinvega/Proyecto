@@ -4,8 +4,7 @@ export default function Footer() {
     return (
         <div className="footer">
             <span>&copy; b-buddy</span>
-            <span>Loli Martín Vega</span>
-            
+            <span>Loli Martín Vega</span>  
         </div>
     )
 }

@@ -51,76 +51,68 @@ export default function UserRegisterForm({ languagesList, interestsList, cities 
         <div className="register-form">
                 <h2>Únete a nuestra comunidad para encontrar tu buddy</h2>
                 <form onSubmit={handleSubmit}>
-                <div className="inputs-form">
-                    <label htmlFor="name">Nombre</label>
-                    <input onChange={handleInputChange} value={form.name} name="name" type="text" id="nameInput" placeholder="Nombre" required/>
-                </div>
-                <div className="inputs-form">
-                    <label htmlFor="lastName">Apellidos</label>
-                    <input onChange={handleInputChange} value={form.lastName} name="lastName" type="text" id="lastNameInput" placeholder="Apellidos" required/>
-                </div>
-                <div className="inputs-form">
-                <label htmlFor="age">¿Cuántos años tienes?</label>
-                    <input onChange={handleInputChange} type="number" id="age" name="age" value={form.age} min="0" max="120" placeholder="Escoge"/>
-                </div>
-                <div className="inputs-form">
-                    <label for="city_id" className="form-label">¿A dónde te mudas?</label>
-                    <select required onChange={handleInputChange} value={form.cityId} name="cityId">
-                        <option value="" disabled defaultValue>Selecciona la ciudad</option>
-                        {cities.map(city => <option value={city.id} key={city.id}>{city.name}</option>)}
-                    </select>
-                </div>
-                <fieldset>
-                    <legend>¿Qué idiomas hablas?</legend>
-                        <div className="languages">
-                        {languagesList.map((language, index) => {
-                            return (<div>
-                                <input onChange={() => handleLangCheckboxChange(index)} checked={langCheckedState[index]} type="checkbox" name={language.name} id={language.name} value={language.id} />
-                                <label htmlFor={language.name} >{language.name}</label>
-                            </div>)
-                        })}
-                        </div>
-                </fieldset>
-
-                <fieldset>
-                    <legend>¿Qué ayuda necesitas?</legend>          
-                        <div className="interests">
-                        {interestsList.map((interest, index) => {
-                            return ( <div>
-                                <input  onChange={() => handleIntCheckboxChange(index)} checked={intCheckedState[index]} type="checkbox" name={interest.tag} id={interest.tag} value={interest.id}/>
-                                <label htmlFor={interest.tag}>{interest.tag}</label>
-                            </div>)
-                        })}                       
-                        </div>
-                </fieldset>
-                <div class="inputs-form">
-                    <label htmlFor="bio">Háblanos sobre tí</label>
-                    <br />
-                    <textarea onChange={handleInputChange} type="text" id="bio" name="bio" value={form.bio} placeholder="Escriba aquí su texto"
-                        cols="54" rows="7" required></textarea>
-                </div>
-                <div class="inputs-form">
-                    <label htmlFor="image">Queremos saber más, sube una foto que te identifique</label>
-                    <input onChange={handleImageUploaded} name="image" type="file" id="image" accept="png jpg jpeg" />
-                </div>
-                <div className="inputs-form">
-                    <label htmlFor="EmailInput">Email</label>
-                    <input onChange={handleInputChange} value={form.email} name="email" type="email" id="EmailInput" placeholder="tuemail@tuemail.com" required/>
-                </div>
-                <div className="inputs-form">
-                    <label htmlFor="PasswordInput">Contraseña</label>
-                    <input onChange={handleInputChange} value={form.password} name="password" type="password" id="PasswordInput" placeholder="***************" required/>
-                </div>
-                {/* <div className="inputs-form">
-                    <label htmlFor="PasswordInput">Vuelve a introducir tu contraseña</label>
-                    <input onChange={handleInputChange} value={form.passwordRepeat} name="password" type="password" id="PasswordInput" placeholder="***************" required/>
-                </div> */}
-                {/* TODO: Averiguar como insertar el campo vuelva a introducir contraseña y sus atributos */}
-                {/* TODO: Agregar link que lleve a la página de login */}
-                <input type="submit" value="Enviar"/>
+                    <div className="inputs-form">
+                        <label htmlFor="name">Nombre</label>
+                        <input onChange={handleInputChange} value={form.name} name="name" type="text" id="nameInput" placeholder="Nombre" required/>
+                    </div>
+                    <div className="inputs-form">
+                        <label htmlFor="lastName">Apellidos</label>
+                        <input onChange={handleInputChange} value={form.lastName} name="lastName" type="text" id="lastNameInput" placeholder="Apellidos" required/>
+                    </div>
+                    <div className="inputs-form">
+                        <label htmlFor="age">¿Cuántos años tienes?</label>
+                        <input onChange={handleInputChange} type="number" id="age" name="age" value={form.age} min="0" max="120" placeholder="Escoge"/>
+                    </div>
+                    <div className="inputs-form">
+                        <label for="city_id" className="form-label">¿A dónde te mudas?</label>
+                        <select required onChange={handleInputChange} value={form.cityId} name="cityId">
+                            <option value="" disabled defaultValue>Selecciona la ciudad</option>
+                            {cities.map(city => <option value={city.id} key={city.id}>{city.name}</option>)}
+                        </select>
+                    </div>
+                    <fieldset>
+                        <legend>¿Qué idiomas hablas?</legend>
+                            <div className="languages">
+                                {languagesList.map((language, index) => {
+                                return (<div>
+                                    <input onChange={() => handleLangCheckboxChange(index)} checked={langCheckedState[index]} type="checkbox" name={language.name} id={language.name} value={language.id} />
+                                    <label htmlFor={language.name} >{language.name}</label>
+                                </div>)
+                                })}
+                            </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>¿Qué ayuda necesitas?</legend>          
+                            <div className="interests">
+                                {interestsList.map((interest, index) => {
+                                return ( <div>
+                                    <input  onChange={() => handleIntCheckboxChange(index)} checked={intCheckedState[index]} type="checkbox" name={interest.tag} id={interest.tag} value={interest.id}/>
+                                    <label htmlFor={interest.tag}>{interest.tag}</label>
+                                </div>)
+                                })}                       
+                            </div>
+                    </fieldset>
+                    <div class="inputs-form">
+                        <label htmlFor="bio">Háblanos sobre tí</label>
+                        <textarea onChange={handleInputChange} type="text" id="bio" name="bio" value={form.bio} placeholder="Escriba aquí su texto"
+                            cols="54" rows="7" required></textarea>
+                    </div>
+                    <div class="inputs-form">
+                        <label htmlFor="image">Queremos saber más, sube una foto que te identifique</label>
+                        <input onChange={handleImageUploaded} name="image" type="file" id="image" accept="png jpg jpeg" />
+                    </div>
+                    <div className="inputs-form">
+                        <label htmlFor="EmailInput">Email</label>
+                        <input onChange={handleInputChange} value={form.email} name="email" type="email" id="EmailInput" placeholder="tuemail@tuemail.com" required/>
+                    </div>
+                    <div className="inputs-form">
+                        <label htmlFor="PasswordInput">Contraseña</label>
+                        <input onChange={handleInputChange} value={form.password} name="password" type="password" id="PasswordInput" placeholder="***************" required/>
+                    </div>
+                    <input type="submit" value="Enviar"/>
                 </form>
                 <div>
-                <Link to="/login">¿Ya tienes una cuenta con nosotros?</Link>
+                    <Link to="/login">¿Ya tienes una cuenta con nosotros?</Link>
                 </div>
         </div>
     )

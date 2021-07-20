@@ -54,8 +54,6 @@ export default function Profile_page() {
             <div className="link-to-contact">
                 <Link to={`/contact/${id}`} className="btn">Contacta conmigo</Link>
             </div>
-            
-
         </div>
     ) : <Redirect to="/login" />
 }

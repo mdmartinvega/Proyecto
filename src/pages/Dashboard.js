@@ -29,9 +29,9 @@ export default function Dashboard() {
 
     return (
         
-            <div className="main-page">
-                <h2>Bienvenido a tu perfil {profileResults?.name} !</h2>
-                <div className="profile">
+        <div className="main-page">
+            <h2>Bienvenido a tu perfil {profileResults?.name} !</h2>
+            <div className="profile">
                 <h2>Sobre tí</h2>
                 <div className="img-dashboard">
                     <img src={src} alt="..." />
@@ -54,21 +54,16 @@ export default function Dashboard() {
                         }
                     </div> */}
                 </div>
+            </div>
+            <div className="dashboard">
+                <div>
+                    <Messages />
+                    {profileResults !== undefined ? <ConfigurationDashboard user={profileResults} reload={setReload}/> : <></>}
                 </div>
-                <div className="dashboard">
-                        <div class="list">
-                            
-                        </div>
-                    <div>
-                        <Messages />
-                        {profileResults !== undefined ? <ConfigurationDashboard user={profileResults} reload={setReload}/> : <></>}
-                    </div>
-                    <div>
-                        <DeleteAccount user={profileResults}/>
-                    </div>
-                    
-                
+                <div>
+                    <DeleteAccount user={profileResults}/>
                 </div>
             </div>
+        </div>
     )
 }

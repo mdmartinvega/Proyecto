@@ -34,7 +34,6 @@ export default function ConfigurationDashboard({user, reload}) {
         } 
     }
 
-    
     return (
         <div className="main-dashboard">
             <div className="register-form">
@@ -49,12 +48,11 @@ export default function ConfigurationDashboard({user, reload}) {
                         <input onChange={handleInputChange} value={form.lastName} name="lastName" type="text" id="lastNameInput" placeholder="Apellidos"/>
                     </div>
                     <div className="inputs-form">
-                    <label htmlFor="age">¿Cuántos años tienes?</label>
+                        <label htmlFor="age">¿Cuántos años tienes?</label>
                         <input onChange={handleInputChange} type="number" id="age" name="age" value={form.age} min="0" max="120" placeholder="Escoge"/>
                     </div>
                     <div class="inputs-form">
                         <label htmlFor="bio">Háblanos sobre tí</label>
-                        <br />
                         <textarea onChange={handleInputChange} type="password" id="bio" name="bio" value={form.bio} placeholder="Escriba aquí su texto"
                             ></textarea>
                     </div>
@@ -66,12 +64,6 @@ export default function ConfigurationDashboard({user, reload}) {
                         <label htmlFor="PasswordInput">Contraseña</label>
                         <input onChange={handleInputChange} value={form.password} name="password" type="password" id="PasswordInput" placeholder="***************"/>
                     </div>
-                    {/* <div className="inputs-form">
-                        <label htmlFor="PasswordInput">Vuelve a introducir tu contraseña</label>
-                        <input onChange={handleInputChange} value={form.passwordRepeat} name="password" type="password" id="PasswordInput" placeholder="***************"/>
-                    </div> */}
-                    {/* TODO: Averiguar como insertar el campo vuelva a introducir contraseña y sus atributos */}
-                    {/* TODO: Agregar link que lleve a la página de login */}
                     <input type="submit" value="Enviar"/>
                 </form>
             </div>

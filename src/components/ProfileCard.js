@@ -7,7 +7,6 @@ export default function Profile({profile}) {
 
     const src = profile.image ? `http://localhost:8000/images/${profile.image}` : PLACEHOLDER_URL;
 
-
     return (
         <div>
             <div className="card">

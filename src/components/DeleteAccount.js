@@ -8,15 +8,12 @@ export default function DeleteAccount({user}) {
     const {getToken} = useAuthContext();
     const {signOut} = useAuthContext();
 
-
     async function handleSubmit (e) {
         e.preventDefault();
-
 
         const options = {
             method: "DELETE",
             headers: {"Authorization": `Bearer ${getToken()}`},
-
         }
 
         const response = await fetch(`http://localhost:8000/api/buddies/delete/${user.id}`, options);
@@ -29,7 +26,6 @@ export default function DeleteAccount({user}) {
         } else {
             alert("Oooops! Algo fue mal");
         }
-   
     };
     
     return (

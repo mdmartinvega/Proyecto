@@ -4,30 +4,216 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    /* font-size: 1.1em; */
 }
 
 /* Cuerpo de la página */
 .router {
-    /* background: radial-gradient(circle at 120.71% 50%, #fce2c1 0, #f8e4c1 3.33%, #f2e5c0 6.67%, #ede7c1 10%, #e7e9c2 13.33%, #e2eac4 16.67%, #dcecc7 20%, #d6edca 23.33%, #d0eece 26.67%, #cbefd3 30%, #c6f0d7 33.33%, #c1f0dc 36.67%, #bdf1e1 40%, #b9f1e7 43.33%, #b7f1ec 46.67%, #b5f1f1 50%, #b4f1f6 53.33%, #b5f0fa 56.67%, #b6efff 60%, #b8eeff 63.33%, #bcedff 66.67%, #c0ecff 70%, #c5ebff 73.33%, #cbe9ff 76.67%, #d1e8ff 80%, #d8e6ff 83.33%, #dee4ff 86.67%, #e5e2ff 90%, #ebe1ff 93.33%, #f1dfff 96.67%, #f7deff 100%); */
     background-color: burlywood;
 }
 
 /* -------------------------Index------------------------- */
-.index-picture {
-    height: 75vh;
+.index {
+    position: relative;
+    min-height: 80vh;
+}
+
+/* Input */
+.input-search {
     width: 85%;
-    border-radius: 30px;
-    margin: 50px auto;
+    text-align: center;
+    border: none;
+    font-size: 1.2em;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
     background: linear-gradient(to bottom, rgba(31, 31, 31, 0.3), rgb(83, 77, 82)), url(./images/pexels-bas-masseus-1187520.jpg);
     background-position: right;
     background-size: cover;
+    border-radius: 30px;
+    margin: 50px auto;
+    padding: 100px 0;
+    gap: 10px;
+  }
+  .input-search-single {
+    width: 400px;
+    border: 2px solid #214778;
+    padding: 20px;
+    background-color: rgb(251, 240, 251);
+  }
+  .autocomplete {
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+  .input-search-single a {
+    text-decoration: none;
+    border: 1px solid white;
+    background-color: rgb(216, 212, 248);
+    padding: 10px;
+    color: #214778;
+    border: 2px solid #214778;
+    background-color: white;
+  }
+
+  .input-search label {
+    color: rgb(19, 15, 15);
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .input-search input:focus {
+    box-shadow: 0px 0px 10px rgb(44, 18, 44);
+    outline: none
+  }
+
+/* -------------------------Profiles-------------------------- */
+.profiles-page {
+  position: relative;
+  min-height: 90vh;
+}
+.profiles-page h1 {
+  margin: 20px auto;
+  width: 80%;
+  text-align: center;
+}
+.container-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  width: 90%;
+  margin: 50px auto;
+}
+.profiles-page h3 {
+  margin: 20px auto;
+  width: 80%;
+  text-align: center;
+  font-weight: 500;
 }
 
-.index-picture h1 {
-    color: rgb(255, 255, 255);
-    padding-top: 200px;
-    padding-left: 50px;
-    
+/* -------------------------Profiles-Card-------------------------- */
 
+.card {
+  width: 400px;
+  background-color: white;
+  padding: 15px;
+}
+.card img {
+  width: 350px;
+}
+.card .description-cardProfile {
+ margin-top: 10px;
+}
+.name {
+  font-size: 1.5em;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+.city {
+  font-style: italic;
+}
+.languages {
+  display: flex;
+  padding: 5px 0px; 
+}
+.languages div {
+  background-color: #e9e9e9;
+  padding: 5px;
+  border-radius: 30px;
+  color: black;
+  margin-right: 10px;
+  font-size: 0.7em;
+}
+.interests {
+  display: flex;
+  padding: 5px 0px; 
+}
+.interests div {
+  background-color: #b3b3b3;
+  padding: 5px;
+  border-radius: 30px;
+  color: black;
+  margin-right: 10px;
+  font-size: 0.7em;
+}
+.other_Details {
+text-align: justify;
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
+font-size: 0.8em;
+padding: 10px 5px;
+}
+.card a {
+  border: 2px solid #214778;
+  background-color: #214778;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  font-size: 0.8em;
+  padding: 6px;
+  color: white;
+}
+.card a:hover {
+  background-color: rgb(0, 43, 112);
+  border: 2px solid rgb(0, 43, 112);
+}
+.card a:focus {
+  background-color: #214778;
+  color: white;
+  border: none;
+}
+/* *****************************Login***************************** */
+.login-page {
+  position: relative;
+  min-height: 80vh;
+}
+.login-form {
+  width: 50%;
+  margin: 20px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 30px;
+}
+
+.login-form h2 {
+padding-bottom: 20px;
+}
+
+.login-form .inputs-form label,
+.login-form .inputs-form input {  
+width: 100%;
+}
+
+.inputs-form input {
+padding: 7px;
+margin-bottom: 20px;
+border-radius: 10px;
+border: 0;
+background-color: rgb(236, 236, 236);
+outline: none;
+}
+
+
+.inputs-form input:focus {
+/* box-shadow: 0px 0px 10px rebeccapurple;
+outline: none; */
+background-color: rgb(185, 180, 236);
+}
+
+.login-form button {
+  width: 100%;
+  background-color: #214778;
+  padding: 7px;
+  color: #fff;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 0;
+}
+
+.login-form a {
+  text-decoration: none;
+  color: #395579;
+  font-weight: bold;
+  padding-right: 25px;
 }
