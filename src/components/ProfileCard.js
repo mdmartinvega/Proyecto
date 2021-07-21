@@ -1,7 +1,6 @@
 import {Link} from 'react-router-dom';
 import { PLACEHOLDER_URL } from '../Settings';
 
-import '../styles/ProfileCard.css';
 
 export default function Profile({profile}) {
 
@@ -13,7 +12,11 @@ export default function Profile({profile}) {
                 <img src={src} alt="..." />
                 <div className="description-cardProfile">
                     <p className="name">{`${profile.name}, ${profile.age}`}</p>
-                    <p className="city">{profile.cityId}</p>
+
+                    {`${profile.roles} === ["ROLE_BUDDY", "ROLE_USER"]`
+                    ? <p className="city">Vivo en {profile.cityId}</p> 
+                    : <p className="city">Me mudo a {profile.cityId}</p>}
+
                     <div className="languages">
                         {profile.languages?.map(language => {
                             return <div> {`${language.name}`} </div>

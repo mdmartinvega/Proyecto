@@ -1,7 +1,6 @@
-import '../styles/ProfilePage.css';
 import { Link, useParams, Redirect } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { PLACEHOLDER_URL } from '../Settings';
+import { PLACEHOLDER_URL, API_PROFILES } from '../Settings';
 import { useAuthContext } from "../context/AuthContext";
 
 
@@ -10,12 +9,10 @@ export default function Profile_page() {
     const {id} = useParams();
     const {isAuthenticated} = useAuthContext();
 
-    const API_PROFILES = `http://localhost:8000/api/buddies/${id}`;
-
     const [descriptionUser, setDescriptionUser] = useState({});
 
     useEffect(() => {
-        fetch(API_PROFILES)
+        fetch(API_PROFILES + `${id}`)
         .then(response => response.json())
         .then(data => setDescriptionUser(data));  
         // eslint-disable-next-line
@@ -52,7 +49,7 @@ export default function Profile_page() {
                 </div>
             </div>
             <div className="link-to-contact">
-                <Link to={`/contact/${id}`} className="btn">Contacta conmigo</Link>
+                <Link to={`/contact/${id}`} className="btn" key={descriptionUser.id}>Contacta conmigo</Link>
             </div>
         </div>
     ) : <Redirect to="/login" />

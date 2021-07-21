@@ -1,19 +1,17 @@
 import ProfileCard from '../components/ProfileCard';
-import Filter from '../components/Filter';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import '../styles/Profiles.css';
+import { API_PROFILES_BY_CITY } from '../Settings';
 
 
 export default function Profiles() {
     const {id} = useParams();
     
-    const API_PROFILES = `http://localhost:8000/api/buddies/city/${id}`;
 
     const [apiResults, setApiResults] = useState([]);
 
     useEffect(() => {
-        fetch(API_PROFILES)
+        fetch(API_PROFILES_BY_CITY + `${id}`)
         .then(response => response.json())
         .then(data => setApiResults(data));
         // eslint-disable-next-line  
@@ -27,8 +25,8 @@ export default function Profiles() {
     return  (
         <div className="profiles-page">
             <h1>Encuentra a tu buddy en {city?.name}</h1>
-            <Filter />
-            <h3>Hemos encontrado un total de {total} buddies en esta ciudad:</h3>
+            {total > 1 ? <h3>Hemos encontrado un total de {total} personas en esta ciudad:</h3>
+            : <h3>De momento sólo hay una persona en esta ciudad, contácta con ella!</h3>}
             <div className="container-cards">
                 {
                     profileCards?.map(profile => {

@@ -1,6 +1,6 @@
 import { Link, useHistory } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
-import { API_REGISTER_USER } from '../Settings';
+import { API_REGISTER_USER, API_REGISTER_IMAGE} from '../Settings';
 import { useState } from 'react';
 
 export default function UserRegisterForm({ languagesList, interestsList, cities }) {
@@ -10,7 +10,7 @@ export default function UserRegisterForm({ languagesList, interestsList, cities 
     const initialFormState = {name: "", lastname: "",cityId:"", email: "", password: "", age: "", image:"", yearsLiving: "", roles: "['ROLE_USER']", bio:""};
     const [form, handleInputChange, handleLangCheckboxChange, langCheckedState, handleIntCheckboxChange, intCheckedState] = useForm(initialFormState, languagesList, interestsList); // Custom Hook
     const [image, setImage] = useState('');
-    console.log(form);
+
     //Manejo de la imagen
     const handleImageUploaded = e => setImage(e.target.files[0]);
 
@@ -26,7 +26,6 @@ export default function UserRegisterForm({ languagesList, interestsList, cities 
 
         const response = await fetch(API_REGISTER_USER, options);
         const data = await response.json();
-        console.log(data);
 
         const formImage = new FormData();
         formImage.append("File", image);
@@ -37,14 +36,17 @@ export default function UserRegisterForm({ languagesList, interestsList, cities 
             body: formImage
         }
 
-        const responseImage = await fetch(`http://localhost:8000/api/buddies/imageupdated/${data.id}`, optionsImg);
+        const responseImage = await fetch(API_REGISTER_IMAGE + `${data.id}`, optionsImg);
+        // eslint-disable-next-line
         const dataImage = await responseImage;
-        console.log(dataImage);
 
         if(response.status >= 200 && response.status < 300) {
             alert("Tu cuenta se ha creado correctamente, accede con ella");
-            history.push("/login");
-        } 
+            history.push("/login")
+            } else {
+                alert("Verifique los datos introducidos, el email debe ser único");
+            }
+        
     }
 
     return  (
@@ -64,7 +66,7 @@ export default function UserRegisterForm({ languagesList, interestsList, cities 
                         <input onChange={handleInputChange} type="number" id="age" name="age" value={form.age} min="0" max="120" placeholder="Escoge"/>
                     </div>
                     <div className="inputs-form">
-                        <label for="city_id" className="form-label">¿A dónde te mudas?</label>
+                        <label htmlFor="city_id" className="form-label">¿A dónde te mudas?</label>
                         <select required onChange={handleInputChange} value={form.cityId} name="cityId">
                             <option value="" disabled defaultValue>Selecciona la ciudad</option>
                             {cities.map(city => <option value={city.id} key={city.id}>{city.name}</option>)}
@@ -92,12 +94,12 @@ export default function UserRegisterForm({ languagesList, interestsList, cities 
                                 })}                       
                             </div>
                     </fieldset>
-                    <div class="inputs-form">
+                    <div className="inputs-form">
                         <label htmlFor="bio">Háblanos sobre tí</label>
                         <textarea onChange={handleInputChange} type="text" id="bio" name="bio" value={form.bio} placeholder="Escriba aquí su texto"
                             cols="54" rows="7" required></textarea>
                     </div>
-                    <div class="inputs-form">
+                    <div className="inputs-form">
                         <label htmlFor="image">Queremos saber más, sube una foto que te identifique</label>
                         <input onChange={handleImageUploaded} name="image" type="file" id="image" accept="png jpg jpeg" />
                     </div>
@@ -109,7 +111,7 @@ export default function UserRegisterForm({ languagesList, interestsList, cities 
                         <label htmlFor="PasswordInput">Contraseña</label>
                         <input onChange={handleInputChange} value={form.password} name="password" type="password" id="PasswordInput" placeholder="***************" required/>
                     </div>
-                    <input type="submit" value="Enviar"/>
+                    <input className="input-button" type="submit" value="Enviar"/>
                 </form>
                 <div>
                     <Link to="/login">¿Ya tienes una cuenta con nosotros?</Link>

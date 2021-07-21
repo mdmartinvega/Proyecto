@@ -1,6 +1,6 @@
 import { Link, useHistory } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
-import { API_REGISTER_BUDDY } from '../Settings';
+import { API_REGISTER_BUDDY, API_REGISTER_IMAGE } from '../Settings';
 import { useState } from 'react';
 
 export default function BuddyRegisterForm({ languagesList, interestsList, cities }) {
@@ -10,8 +10,6 @@ export default function BuddyRegisterForm({ languagesList, interestsList, cities
     const initialFormState = {name: "", lastname: "",cityId:"", email: "", password: "", age: "", image:"", yearsLiving: "", roles: "['ROLE_BUDDY']", bio:""};
     const [form, handleInputChange, handleLangCheckboxChange, langCheckedState, handleIntCheckboxChange, intCheckedState] = useForm(initialFormState, languagesList, interestsList); // Custom Hook
     const [image, setImage] = useState('');
-    console.log(form);
-    
 
      //Manejo de la imagen
      const handleImageUploaded = e => setImage(e.target.files[0]);
@@ -28,7 +26,6 @@ export default function BuddyRegisterForm({ languagesList, interestsList, cities
 
         const response = await fetch(API_REGISTER_BUDDY, options);
         const data = await response.json();
-        console.log(data);
 
         const formImage = new FormData();
         formImage.append("File", image);
@@ -39,14 +36,17 @@ export default function BuddyRegisterForm({ languagesList, interestsList, cities
             body: formImage
         }
 
-        const responseImage = await fetch(`http://localhost:8000/api/buddies/imageupdated/${data.id}`, optionsImg);
+        const responseImage = await fetch(API_REGISTER_IMAGE + `${data.id}`, optionsImg);
+        // eslint-disable-next-line
         const dataImage = await responseImage;
-        console.log(dataImage);
+
         
         if(response.status >= 200 && response.status < 300) {
             alert("Tu cuenta se ha creado correctamente, accede con ella");
             history.push("/login");
-        } 
+        } else {
+            alert("Verifique los datos introducidos, el email debe ser único");
+        }
     }
 
     return (
@@ -116,7 +116,7 @@ export default function BuddyRegisterForm({ languagesList, interestsList, cities
                     <label htmlFor="PasswordInput">Contraseña</label>
                     <input onChange={handleInputChange} value={form.password} name="password" type="password" id="PasswordInput" placeholder="***************" required/>
                 </div>
-                <input type="submit" value="Enviar"/>
+                <input className="input-button" type="submit" value="Enviar"/>
             </form>
             <div>
                 <Link to="/login">¿Ya tienes una cuenta con nosotros?</Link>

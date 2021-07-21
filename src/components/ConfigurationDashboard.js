@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import '../styles/ConfigurationDashboard.css';
 import { useHistory } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
 
@@ -11,8 +10,6 @@ export default function ConfigurationDashboard({user, reload}) {
     const initialFormState = {name: user?.name, lastName: user?.lastName, email: user?.email, password: user?.password, age: user?.age, bio: user?.bio};
     const [form, handleInputChange] = useForm(initialFormState, languagesList, interestsList); // Custom Hook
     const history = useHistory();
-    console.log(form);
-
 
     async function handleSubmit(e){
         e.preventDefault();
@@ -24,8 +21,9 @@ export default function ConfigurationDashboard({user, reload}) {
         }
 
         const response = await fetch(`http://localhost:8000/api/buddies/updatedUser/${user.id}`, options);
+        // eslint-disable-next-line
         const data = await response.json();
-        console.log(data);
+
 
         if(response.status >= 200 && response.status < 300) {
             alert("Tus datos se han modificado correctamente");
@@ -51,7 +49,7 @@ export default function ConfigurationDashboard({user, reload}) {
                         <label htmlFor="age">¿Cuántos años tienes?</label>
                         <input onChange={handleInputChange} type="number" id="age" name="age" value={form.age} min="0" max="120" placeholder="Escoge"/>
                     </div>
-                    <div class="inputs-form">
+                    <div className="inputs-form">
                         <label htmlFor="bio">Háblanos sobre tí</label>
                         <textarea onChange={handleInputChange} type="password" id="bio" name="bio" value={form.bio} placeholder="Escriba aquí su texto"
                             ></textarea>

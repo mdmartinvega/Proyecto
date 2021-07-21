@@ -1,6 +1,7 @@
-import '../styles/DeleteAccount.css';
 import { useHistory } from 'react-router-dom';
 import { useAuthContext } from "../context/AuthContext";
+import { API_DELETE_ACCOUNT } from '../Settings';
+
 
 export default function DeleteAccount({user}) {
 
@@ -16,7 +17,8 @@ export default function DeleteAccount({user}) {
             headers: {"Authorization": `Bearer ${getToken()}`},
         }
 
-        const response = await fetch(`http://localhost:8000/api/buddies/delete/${user.id}`, options);
+        const response = await fetch(API_DELETE_ACCOUNT + `${user.id}`, options);
+        // eslint-disable-next-line
         const data = await response.json();
 
         if(response.status >= 200 && response.status < 300) {

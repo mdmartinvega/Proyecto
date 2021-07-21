@@ -3,6 +3,8 @@ import { useParams } from "react-router";
 import { useAuthContext } from "../context/AuthContext";
 import jwt_decode from "jwt-decode";
 import { useHistory, Redirect  } from 'react-router-dom';
+import { API_MESSAGES } from '../Settings';
+
 
 export default function Contact(languagesList, interestsList) {
 
@@ -27,9 +29,10 @@ export default function Contact(languagesList, interestsList) {
             body: JSON.stringify(form)
         }
 
-        const response = await fetch(`http://localhost:8000/api/messages/${id}`, options);
+        const response = await fetch(API_MESSAGES + `${id}`, options);
+        // eslint-disable-next-line
         const data = await response.json();
-        console.log(data);
+
 
         if(response.status >= 200 && response.status < 300) {
             history.push("/successful")

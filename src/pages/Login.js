@@ -1,4 +1,3 @@
-import '../styles/Login.css';
 import { Link, useHistory, Redirect } from 'react-router-dom';
 import { useForm } from "../hooks/useForm";
 import { useAuthContext } from "../context/AuthContext";
@@ -47,7 +46,7 @@ export default function LogIn(languagesList, interestsList) {
                     <button type="submit" value="Accede">Accede</button>
                 </form>
                 <div>
-                    <Link to="/forgetPassword">¿Has olvidado tu contraseña?</Link>
+                    {/* <Link to="/forgetPassword">¿Has olvidado tu contraseña?</Link> */}
                     <Link to="/about">Regístrate para acceder</Link>
                 </div>
             </div>

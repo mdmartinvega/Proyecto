@@ -11,6 +11,33 @@
     background-color: burlywood;
 }
 
+/* *****************************Navbar************************ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.1em 1.1em 0em 1.1em;
+  align-items: center;
+}
+.navbar a {
+  margin-left: 1.5em;
+  padding: 0.5em;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  color: #214778;
+  font-size: 1.1em;
+}
+.navbar a:hover {
+  color: #214778;
+}
+.navbar img {
+  width: 120px;
+}
+.buttons-navbar a:nth-child(2),
+.buttons-navbar a:nth-child(3) {
+  border: 2px solid #214778;
+  background-color: white;
+}
 /* -------------------------Index------------------------- */
 .index {
     position: relative;
@@ -114,7 +141,9 @@
 }
 .languages {
   display: flex;
+  flex-wrap: wrap;
   padding: 5px 0px; 
+  gap: 2px;
 }
 .languages div {
   background-color: #e9e9e9;
@@ -126,7 +155,9 @@
 }
 .interests {
   display: flex;
+  flex-wrap: wrap;
   padding: 5px 0px; 
+  gap: 2px;
 }
 .interests div {
   background-color: #b3b3b3;
@@ -163,6 +194,66 @@ padding: 10px 5px;
   color: white;
   border: none;
 }
+
+/* ******************************Profile Page************************* */
+.profile-page {
+  width: 85%;
+  border-radius: 30px;
+  margin: 50px auto;
+  background-position: right;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 70vh;
+  padding: 50px;
+}
+.infoUser {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+.image-profile-user {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.image-profile-user img {
+  width: 350px;
+  height: 250px;
+  border: 3px solid #214778;
+}
+.image-profile-user p {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: rgb(58, 57, 57);
+  padding-top: 20px;
+}
+.info-profile-user {
+  width: 50%;
+}
+.profile-page .link-to-contact {
+  margin: auto;
+  margin-bottom: 60px;
+}
+.link-to-contact a {
+  text-decoration: none;
+  border: 1px solid #214778;
+  border-radius: 30px;
+  padding: 15px;
+  color: white;
+  background-color: #214778;
+}
+.description-cardProfile-user .interests {
+  font-size: 1.3em;
+}
+.description-cardProfile-user .languages {
+  font-size: 1.3em;
+}
+
 /* *****************************Login***************************** */
 .login-page {
   position: relative;
@@ -193,14 +284,9 @@ border: 0;
 background-color: rgb(236, 236, 236);
 outline: none;
 }
-
-
 .inputs-form input:focus {
-/* box-shadow: 0px 0px 10px rebeccapurple;
-outline: none; */
 background-color: rgb(185, 180, 236);
 }
-
 .login-form button {
   width: 100%;
   background-color: #214778;
@@ -210,10 +296,337 @@ background-color: rgb(185, 180, 236);
   border-radius: 10px;
   border: 0;
 }
-
 .login-form a {
   text-decoration: none;
   color: #395579;
   font-weight: bold;
   padding-right: 25px;
 }
+
+/* ****************************About************************* */
+.about-us h2 {
+  margin-bottom: 20px;
+}
+.about-us {
+  width: 85%;
+  background-position: center bottom;
+  background-size: cover;
+  border-radius: 30px;
+  margin: 20px auto;
+  padding: 15px;
+  text-align: justify;
+  line-height: 40px;
+}
+.container-abouts {
+  display: flex;
+  justify-content: center;
+  gap: 45px;
+  padding: 30px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+.abouts {
+  width: 400px;
+}
+.abouts a{
+  background-color: #214778;
+  border-radius: 30px;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  display: block;
+  width: 300px;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+/* ****************************Register********************* */
+.choose-option {
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+}
+.choose-option div {
+  padding: 20px 0px;
+}
+.select-options {
+padding: 5px 0px 15px 0px;
+display: flex;
+font-weight: bold;
+}
+.choose-option div input {
+  margin-right: 10px;
+}
+.register-form {
+  width: 60%;
+  margin: 20px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 30px
+}
+.register-form .inputs-form label,
+.register-form .inputs-form input {
+width: 100%;
+}
+.inputs-form input {
+padding: 7px;
+margin-bottom: 20px;
+border-radius: 10px;
+border: 0;
+background-color: rgb(236, 236, 236);
+outline: none;
+}
+.inputs-form select {
+  padding: 7px;
+  margin-bottom: 5px;
+}
+.inputs-form textarea {
+padding: 7px;
+margin-bottom: 20px;
+border-radius: 10px;
+border: 0;
+background-color: rgb(236, 236, 236);
+outline: none;
+width: 100%;
+height: 200px;
+resize: none;
+}
+.inputs-form input:focus {
+background-color: rgb(163, 164, 223);
+}
+.inputs-form input:focus::placeholder {
+color: rgb(126, 126, 128);
+}
+.register-form button {
+  width: 100%;
+  background-color: #214778;
+  padding: 7px;
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 0;
+}
+.register-form a {
+  text-decoration: none;
+  color: #214778;
+  font-weight: bold;
+  padding-right: 25px;
+}
+.input-button {
+  width: 100%;
+  background-color: #214778;
+  padding: 7px;
+  color: #fff;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+}
+
+
+/* *************************Dashboard************************** */
+.main-page {
+  background-color: burlywood;
+  padding-top: 30px;
+}
+.main-page h2 {
+  text-align: center;
+}
+.profile .img-dashboard {
+  text-align: center;
+}
+.img-dashboard img {
+  width: 300px;
+  margin: 10px auto;
+}
+.profile {
+  margin: auto;
+  width: 60%;
+  margin: 20px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 30px
+}
+.profile h2 {
+  padding: 20px;
+}
+.laguages-2 {
+  display: block;
+}
+.about-you p:nth-child(1) {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+.about-you p:nth-child(2) {
+  font-size: 1.1em;
+  font-style: italic;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* **************************Messages********************************* */
+.messages-area {
+  margin: auto;
+  margin-bottom: 50px;
+  width: 60%;
+  margin: 20px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 30px;
+  margin-top: 60px;
+}
+.messages-area h2 {
+  padding: 20px;
+  text-align: center;
+}
+.messages-area>a {
+  text-decoration: none;
+  color: #02234e;
+}
+.message {
+  padding: 20px;
+  overflow-y: scroll;
+  height: 300px;
+}
+.one-message {
+  padding: 10px;
+
+}
+.one-message .links {
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  text-decoration: none;
+}
+.one-message .links a {
+  text-decoration: none;
+  color: white;
+  border: 1px solid #214778;
+  background-color: #214778;
+  padding: 5px;
+}
+.one-message .links a:hover {
+  background-color: #214778;
+  padding: 5px;
+}
+.msg-text {
+  padding: 20px;
+}
+.msg-text p{
+  width: 200px;
+}
+.msger-inputarea {
+  border: 1px solid black; 
+  padding: 20px;
+  border-top: none;
+}
+.one-message:nth-child(odd) {
+  background-color: #b3b3b3;
+}
+.one-message:nth-child(odd) .links a {
+  text-decoration: none;
+  color: white;
+  border: 1px solid #214778;
+  background-color: #214778;
+  padding: 5px;
+}
+.one-message:nth-child(even) {
+  background-color: #214778;
+}
+.one-message:nth-child(even) {
+  background-color: #214778;
+  text-decoration: none;
+  color: white;
+  border: 1px solid #787879;
+  background-color: #757575;
+  padding: 5px;
+}
+
+/* **********************Configuration dashboard******************** */
+.main-dashboard {
+  padding: 30px;
+}
+.main-dashboard h2 {
+  text-align: center;
+  padding: 20px
+}
+/* ***************************Delete account**************************** */
+.delete-account {
+  width: 100px;
+  margin: auto;
+  margin-right: 100px;
+}
+.delete-account input {
+  width: 150px;
+  background-color: red;
+  padding: 15px;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+/* *****************************Footer********************************** */
+.footer {
+  color: rgb(80, 80, 80);
+  padding: 15px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+/* ***************************Sent Message************************************ */
+.sent-message {
+  position: relative;
+  min-height: 80vh;
+  width: 80%;
+  margin: 100px auto;
+  color: #02234e;
+}
+
+/* ******************************Forget password****************************** */
+/* .forgetPassword-form {
+  width: 50%;
+  margin: 20px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 30px
+}
+
+.forgetPassword-form h2 {
+padding-bottom: 20px;
+}
+
+.forgetPassword-form .inputs-form label,
+.forgetPassword-form .inputs-form input {  
+width: 100%;
+}
+
+.inputs-form input {
+padding: 7px;
+margin-bottom: 20px;
+border-radius: 10px;
+border: 0;
+background-color: rgb(236, 236, 236);
+outline: none;
+}
+
+
+.inputs-form input:focus {
+/* box-shadow: 0px 0px 10px rebeccapurple;
+outline: none; */
+/* background-color: rgb(212, 207, 240);
+}
+
+.forgetPassword-form button {
+  width: 100%;
+  background-color: #214778;
+  padding: 7px;
+  color: #fff;
+  margin-top: 0px;
+  margin-bottom: 7px;
+  border-radius: 10px;
+  border: 0;
+} */ 
+
+
+

@@ -33,7 +33,7 @@ const useForm = (initialState, languagesList, interestsList) => {
         index === position ? !item : item
         );
         setLangCheckedState(updatedlangCheckedState);
-        console.log("langCheckedState: "+langCheckedState)
+
 
     const langIdsArrayTemp = [];
     updatedlangCheckedState.map(
@@ -59,7 +59,6 @@ const useForm = (initialState, languagesList, interestsList) => {
         index === position ? !item : item
         );
         setIntCheckedState(updatedintCheckedState);
-        console.log("intCheckedState: "+intCheckedState)
 
     const intIdsArrayTemp = [];
     updatedintCheckedState.map(
@@ -70,7 +69,7 @@ const useForm = (initialState, languagesList, interestsList) => {
         return 0;
     }
     );
-    console.log('idsArrayTemp: '+intIdsArrayTemp);
+
 
     setForm(previousState => {
         return {...previousState, 'interests': intIdsArrayTemp}

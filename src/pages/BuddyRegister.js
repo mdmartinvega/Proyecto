@@ -1,4 +1,3 @@
-import '../styles/Register.css';
 import { useState, useEffect } from 'react';
 import { API_CITIES, INTERESTSLIST_URL, LANGUAGESLIST_URL } from '../Settings';
 import BuddyRegisterForm from '../components/BuddyRegisterForm';

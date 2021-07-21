@@ -1,8 +1,9 @@
-import '../styles/Messages.css';
 import { useState, useEffect } from 'react';
 import jwt_decode from "jwt-decode";
 import { useAuthContext } from "../context/AuthContext";
 import { Link } from 'react-router-dom';
+import { API_MESSAGES_RECEIVED } from '../Settings';
+
 
 
 export default function Messages() {
@@ -12,10 +13,9 @@ export default function Messages() {
     const userId=jwt_decode(token).user.id;
 
     const [receivedMessages, setReceivedMessages] = useState([]);
-    const API_MESSAGES_RECEIVED = `http://localhost:8000/api/messages/receivedMessages/${userId}`;
 
     useEffect(() => {
-        fetch(API_MESSAGES_RECEIVED)
+        fetch(API_MESSAGES_RECEIVED + `${userId}`)
         .then(response => response.json())
         .then(data => setReceivedMessages(data));  
         // eslint-disable-next-line
@@ -44,20 +44,20 @@ export default function Messages() {
                 <h2>Tus mensajes recibidos</h2>
                 <h3>Tienes un total de {totalMessages} mensajes</h3>
                 <div className="message">
-                        <div class="messages-from">
+                        <div className="messages-from">
                             {
                             contentMessages?.map(message => {
                                 return (
                                     <div className="one-message">
                                         <h4>{`Mensaje de: ${message?.senderName}`}</h4>
-                                        <div class="msg-info-time">{message?.createdAt}</div>
-                                        <div class="msg-text"><p>{message?.message}</p></div>
+                                        <div className="msg-info-time">{message?.createdAt}</div>
+                                        <div className="msg-text"><p>{message?.message}</p></div>
                                         <div className="links">
-                                        <Link to={`/contact/${message?.senderId}`}>
+                                        <Link to={`/contact/${message?.senderId}`} key={message.id}>
                                             Responder a {message?.senderName}
                                         </Link>
                     
-                                        <Link to={`/profilePage/${message?.senderId}`}>
+                                        <Link to={`/profilePage/${message?.senderId}`} key={message.id}>
                                             Ver ferfil de {message?.senderName}
                                         </Link>
                                         </div>                       
@@ -67,6 +67,7 @@ export default function Messages() {
                             }
                         </div>
                 </div>
+                <Link to={`/profiles/${userId}`}>Ver otros perfiles en tu misma ciudad</Link>
             
             {/* </div>
             <div className="messages-area">
