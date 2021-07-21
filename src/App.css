@@ -38,6 +38,21 @@
   border: 2px solid #214778;
   background-color: white;
 }
+
+/* Movil */
+@media only screen and ( max-width: 700px) {
+  .buttons-navbar a:nth-child(1) {
+      display: none;
+  }
+  .buttons-navbar a {
+  margin-left: 0.5em;
+  padding: 0.4em;
+  font-size: 0.9em;
+  }
+  .navbar a img {
+    width: 90px;
+  }
+}
 /* -------------------------Index------------------------- */
 .index {
     position: relative;
@@ -199,45 +214,43 @@ padding: 10px 5px;
 .profile-page {
   width: 85%;
   border-radius: 30px;
-  margin: 50px auto;
-  background-position: right;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 70vh;
-  padding: 50px;
+  margin: 20px auto;
+
 }
 .infoUser {
-  display: flex;
-  width: 80%;
+  width: 90%;
   margin: auto;
-  align-items: center;
-  justify-content: center;
 }
 .image-profile-user {
-  width: 50%;
+  width: 700px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 .image-profile-user img {
   width: 350px;
+  margin: 20px auto;
   height: 250px;
   border: 3px solid #214778;
+  justify-content: flex-end;
 }
 .image-profile-user p {
   font-size: 1.5em;
   font-weight: bold;
   color: rgb(58, 57, 57);
-  padding-top: 20px;
+
 }
 .info-profile-user {
-  width: 50%;
+  width: 80%;
 }
 .profile-page .link-to-contact {
   margin: auto;
   margin-bottom: 60px;
+}
+.link-to-contact {
+  padding-top: 50px;
+  width: 200px;
+  margin: auto;
 }
 .link-to-contact a {
   text-decoration: none;
@@ -252,6 +265,18 @@ padding: 10px 5px;
 }
 .description-cardProfile-user .languages {
   font-size: 1.3em;
+}
+/* Movil */
+@media only screen and ( max-width: 700px) {
+  .image-profile-user {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .info-profile-user {
+    width: 100%;
+  }
 }
 
 /* *****************************Login***************************** */
@@ -301,6 +326,13 @@ background-color: rgb(185, 180, 236);
   color: #395579;
   font-weight: bold;
   padding-right: 25px;
+}
+
+/* Movil */
+@media only screen and ( max-width: 700px) {
+  .login-form {
+      width: 400px;
+  }
 }
 
 /* ****************************About************************* */
@@ -435,12 +467,14 @@ color: rgb(126, 126, 128);
 }
 .profile .img-dashboard {
   text-align: center;
+
 }
+
 .img-dashboard img {
-  width: 300px;
+  width: 100%;
   margin: 10px auto;
 }
-.profile {
+.profile-up {
   margin: auto;
   width: 60%;
   margin: 20px auto;
@@ -463,6 +497,13 @@ color: rgb(126, 126, 128);
   font-style: italic;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+/* Movil */
+@media only screen and ( max-width: 700px) {
+  .profile-up {
+    width: 400px;
+}
 }
 
 /* **************************Messages********************************* */
@@ -542,6 +583,12 @@ color: rgb(126, 126, 128);
   background-color: #757575;
   padding: 5px;
 }
+/* Movil */
+@media only screen and ( max-width: 700px) {
+  .messages-area {
+    width: 400px;
+}
+}
 
 /* **********************Configuration dashboard******************** */
 .main-dashboard {
@@ -550,6 +597,12 @@ color: rgb(126, 126, 128);
 .main-dashboard h2 {
   text-align: center;
   padding: 20px
+}
+/* Movil */
+@media only screen and ( max-width: 700px) {
+  .register-form {
+    width: 400px;
+}
 }
 /* ***************************Delete account**************************** */
 .delete-account {

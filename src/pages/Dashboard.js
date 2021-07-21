@@ -30,7 +30,7 @@ export default function Dashboard() {
         
         <div className="main-page">
             <h2>Bienvenido a tu perfil {profileResults?.name} !</h2>
-            <div className="profile">
+            <div className="profile-up">
                 <h2>Sobre tí</h2>
                 <div className="img-dashboard">
                     <img src={src} alt="..." />
