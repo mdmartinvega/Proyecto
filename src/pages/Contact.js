@@ -46,7 +46,6 @@ export default function Contact(languagesList, interestsList) {
             <h2>Envía tu mensaje</h2>
             <form onSubmit={handleSubmit}>
                 <div className="inputs-form">
-                    <label htmlFor="message">Escribe tu mensaje</label>
                     <small>Sé explícito, cuanta más información proporciones más posibilidades habrá de ayudar y ser ayudado.</small>
                     <textarea onChange={handleInputChange} type="text" id="message" name="message" value={form.message} placeholder="Escriba aquí su texto"
                         cols="54" rows="7" required></textarea>
