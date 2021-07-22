@@ -62,7 +62,7 @@ export default function ConfigurationDashboard({user, reload}) {
                         <label htmlFor="PasswordInput">Contraseña</label>
                         <input onChange={handleInputChange} value={form.password} name="password" type="password" id="PasswordInput" placeholder="***************"/>
                     </div>
-                    <input type="submit" value="Enviar"/>
+                    <input className="input-button" type="submit" value="Enviar"/>
                 </form>
             </div>
         </div>

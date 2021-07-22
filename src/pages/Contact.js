@@ -42,16 +42,18 @@ export default function Contact(languagesList, interestsList) {
 
     // TODO:Estilar successful page
     return isAuthenticated ? (
-        <div className="login-form">
-            <h2>Envía tu mensaje</h2>
-            <form onSubmit={handleSubmit}>
-                <div className="inputs-form">
-                    <small>Sé explícito, cuanta más información proporciones más posibilidades habrá de ayudar y ser ayudado.</small>
-                    <textarea onChange={handleInputChange} type="text" id="message" name="message" value={form.message} placeholder="Escriba aquí su texto"
-                        cols="54" rows="7" required></textarea>
-                </div>
-                <button type="submit" value="sentMessage">Enviar</button>
-            </form>
+        <div className="contact-page">
+            <div className="login-form">
+                <h2>Envía tu mensaje</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className="inputs-form">
+                        <small>Sé explícito, cuanta más información proporciones más posibilidades habrá de ayudar y ser ayudado.</small>
+                        <textarea onChange={handleInputChange} type="text" id="message" name="message" value={form.message} placeholder="Escriba aquí su texto"
+                            cols="54" rows="7" required></textarea>
+                    </div>
+                    <button type="submit" value="sentMessage">Enviar</button>
+                </form>
+            </div>
         </div>
     ) : <Redirect to="/login" />
 }

@@ -55,7 +55,7 @@ export default function Dashboard() {
             </div>
             <div className="dashboard">
                 <div>
-                    <Messages />
+                    <Messages user={profileResults}/>
                     {profileResults !== undefined ? <ConfigurationDashboard user={profileResults} reload={setReload}/> : <></>}
                 </div>
                 <div>

@@ -6,7 +6,7 @@ import { API_MESSAGES_RECEIVED } from '../Settings';
 
 
 
-export default function Messages() {
+export default function Messages({user}) {
 
     const {getToken} = useAuthContext();
     const token = getToken();
@@ -42,8 +42,10 @@ export default function Messages() {
         const year = splitDate[0];
         const month = splitDate[1];
         const day = splitDate[2].slice(0,2);
+        const time = splitDate[2].slice(3,8);
+
      
-        return (day + '-' + month + '-' + year)
+        return (day + '-' + month + '-' + year + ' a las ' + time)
     }
 
     return (
@@ -58,7 +60,7 @@ export default function Messages() {
                                 return (
                                     <div className="one-message">
                                         <h4>{`Mensaje de: ${message?.senderName}`}</h4>
-                                        <div className="msg-info-time">{message?.createdAt}</div>
+                                        <div className="msg-info-time">{dateFormat(message?.createdAt)}</div>
                                         <div className="msg-text"><p>{message?.message}</p></div>
                                         <div className="links">
                                         <Link to={`/contact/${message?.senderId}`} key={message.id}>
@@ -75,8 +77,8 @@ export default function Messages() {
                             }
                         </div>
                 </div>
-                {jwt_decode(token).user.role > 1 ? <Link to={`/profilesBuddies/${userId}`}>Ver otros perfiles en tu misma ciudad</Link> 
-                : <Link to={`/profilesUsers/${userId}`}>Ver otros perfiles en tu misma ciudad</Link>}
+                {/* {jwt_decode(token).user.role > 1 ? <Link to={`/profilesBuddies/${user?.cityId.id}`}>Ver otros perfiles en tu misma ciudad</Link> 
+                : <Link to={`/profilesUsers/${user?.cityId.id}`}>Ver otros perfiles en tu misma ciudad</Link>} */}
             
             </div>
             <div className="messages-area">
@@ -89,7 +91,7 @@ export default function Messages() {
                                     return (
                                         <div className="one-message">
                                             <h4>{`Mensaje para: ${messagesent?.receiverName}`}</h4>
-                                            <div class="msg-info-time">{messagesent?.createdAt}</div>
+                                            <div class="msg-info-time">{dateFormat(messagesent?.createdAt)}</div>
                                             <div class="msg-text"><p>{messagesent?.message}</p></div>
                                             <div>
                                             </div>

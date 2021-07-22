@@ -9,6 +9,7 @@
 /* Cuerpo de la página */
 .router {
     background-color: burlywood;
+    
 }
 
 /* *****************************Navbar************************ */
@@ -110,7 +111,7 @@
 /* -------------------------Profiles-------------------------- */
 .profiles-page {
   position: relative;
-  min-height: 90vh;
+  min-height: 100vh;
 }
 .profiles-page h1 {
   margin: 20px auto;
@@ -215,7 +216,8 @@ padding: 10px 5px;
   width: 85%;
   border-radius: 30px;
   margin: 20px auto;
-
+  position: relative;
+  min-height: 80vh;
 }
 .infoUser {
   width: 90%;
@@ -282,7 +284,7 @@ padding: 10px 5px;
 /* *****************************Login***************************** */
 .login-page {
   position: relative;
-  min-height: 80vh;
+  min-height: 90vh;
 }
 .login-form {
   width: 50%;
@@ -618,6 +620,12 @@ color: rgb(126, 126, 128);
   font-weight: 500;
 }
 
+/* ********************************Contact***************************** */
+.contact-page {
+  position: relative;
+  min-height: 90vh;
+}
+
 /* *****************************Footer********************************** */
 .footer {
   color: rgb(80, 80, 80);
@@ -630,7 +638,7 @@ color: rgb(126, 126, 128);
 /* ***************************Sent Message************************************ */
 .sent-message {
   position: relative;
-  min-height: 80vh;
+  min-height: 70vh;
   width: 80%;
   margin: 100px auto;
   color: #02234e;
