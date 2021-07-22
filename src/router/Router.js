@@ -1,6 +1,6 @@
 import NavBar from '../components/NavBar';
 import Index from '../pages/Index';
-import Profiles from '../pages/Profiles';
+import ProfilesBuddies from '../pages/ProfilesBuddies';
 import ProfilePage from '../components/ProfilePage';
 import Login from '../pages/Login';
 import BuddyRegister from '../pages/BuddyRegister';
@@ -12,6 +12,7 @@ import Dashboard from '../pages/Dashboard';
 import UserRegister from '../pages/UserRegister';
 import Contact from '../pages/Contact';
 import sentMessage from '../pages/SentMessage';
+import ProfilesUsers from '../pages/ProfilesUsers';
 
 
 export default function Router() {
@@ -26,7 +27,8 @@ export default function Router() {
                         <Route path="/user-register" component={UserRegister} />
                         <Route path="/forgetPassword" component={ForgetPassword} />
                         <Route path="/about" component={About} />
-                        <Route path="/profiles/:id" component={Profiles} />
+                        <Route path="/profilesBuddies/:id" component={ProfilesBuddies} />
+                        <Route path="/profilesUsers/:id" component={ProfilesUsers} />
                         <Route path="/profilePage/:id" component={ProfilePage} />
                         <Route path="/dashboard" component={Dashboard} />
                         <Route path="/contact/:id" component={Contact} />

@@ -34,7 +34,7 @@ export default function Input() {
                         renderInput = {(params) => <TextField {...params} label="¿A dónde te mudas?" variant="outlined" />}
                     />
                 </div>
-                <Link to={`/profiles/${cityId}`} className="btn btn-primary">Vamos allá</Link>
+                <Link to={`/profilesBuddies/${cityId}`} className="btn btn-primary">Vamos allá</Link>
             </div>
 
             <div className="input-search-single">
@@ -50,7 +50,7 @@ export default function Input() {
                         renderInput = {(params) => <TextField {...params} label="¿Dónde vives?" variant="outlined" />}
                     />
                 </div>
-                    <Link to={`/profiles/${cityId}`} className="btn btn-primary">Vamos allá</Link>
+                    <Link to={`/profilesUsers/${cityId}`} className="btn btn-primary">Vamos allá</Link>
                 </div>
         </div>
     )

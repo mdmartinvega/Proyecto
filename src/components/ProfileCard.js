@@ -13,7 +13,7 @@ export default function Profile({profile}) {
                 <div className="description-cardProfile">
                     <p className="name">{`${profile.name}, ${profile.age}`}</p>
 
-                    {`${profile.roles} === ["ROLE_BUDDY", "ROLE_USER"]`
+                    {`${profile.roles.length > 1}`
                     ? <p className="city">Vivo en {profile.cityId}</p> 
                     : <p className="city">Me mudo a {profile.cityId}</p>}
 

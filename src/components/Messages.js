@@ -24,19 +24,27 @@ export default function Messages() {
     let totalMessages = receivedMessages?.total;
     let contentMessages = receivedMessages?.messages;
 
-    // const [sentMessages, setSentMessages] = useState([]);
-    // const API_MESSAGES_SENT = `http://localhost:8000/api/messages/sentMessages/${userId}`;
+    const [sentMessages, setSentMessages] = useState([]);
+    const API_MESSAGES_SENT = `http://localhost:8000/api/messages/sentMessages/${userId}`;
 
-    // useEffect(() => {
-    //     fetch(API_MESSAGES_SENT)
-    //     .then(response => response.json())
-    //     .then(data => setSentMessages(data));  
-    //     // eslint-disable-next-line
-    //     }, []);
+    useEffect(() => {
+        fetch(API_MESSAGES_SENT)
+        .then(response => response.json())
+        .then(data => setSentMessages(data));  
+        // eslint-disable-next-line
+        }, []);
 
-    // let totalsentMessages = sentMessages?.total;
-    // let contentsentMessages = sentMessages?.messages;
+    let totalsentMessages = sentMessages?.total;
+    let contentsentMessages = sentMessages?.messages;
 
+    const dateFormat = formerDate => {
+        const splitDate = formerDate.split('-');
+        const year = splitDate[0];
+        const month = splitDate[1];
+        const day = splitDate[2].slice(0,2);
+     
+        return (day + '-' + month + '-' + year)
+    }
 
     return (
         <div>
@@ -67,21 +75,22 @@ export default function Messages() {
                             }
                         </div>
                 </div>
-                <Link to={`/profiles/${userId}`}>Ver otros perfiles en tu misma ciudad</Link>
+                {jwt_decode(token).user.role > 1 ? <Link to={`/profilesBuddies/${userId}`}>Ver otros perfiles en tu misma ciudad</Link> 
+                : <Link to={`/profilesUsers/${userId}`}>Ver otros perfiles en tu misma ciudad</Link>}
             
-            {/* </div>
+            </div>
             <div className="messages-area">
                 <h2>Tus mensajes enviados</h2>
-                <h3>Tienes un total de {totalsentMessages} mensajes</h3>
+                <h3>Tienes un total de {totalsentMessages} mensajes enviados</h3>
                 <div className="message">
                             <div class="messages-from">
                                 {
-                                contentsentMessages?.map(message => {
+                                contentsentMessages?.map(messagesent => {
                                     return (
                                         <div className="one-message">
-                                            <h4>{`Mensaje a: ${message?.receiverId}`}</h4>
-                                            <div class="msg-info-time">{message?.createdAt}</div>
-                                            <div class="msg-text"><p>{message?.message}</p></div>
+                                            <h4>{`Mensaje para: ${messagesent?.receiverName}`}</h4>
+                                            <div class="msg-info-time">{messagesent?.createdAt}</div>
+                                            <div class="msg-text"><p>{messagesent?.message}</p></div>
                                             <div>
                                             </div>
                                         </div>
@@ -90,7 +99,7 @@ export default function Messages() {
                                 }
             
                             </div>
-                </div> */}
+                </div>
             
             </div>
         </div>
